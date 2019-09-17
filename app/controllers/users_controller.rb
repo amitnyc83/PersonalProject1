@@ -1,10 +1,14 @@
 class UsersController < ApiController
-  before_action :require_login, except: [:create]
+  # before_action :require_login, except: [:create]
 
 
   def create
-    user = User.create!(user_params)
-    render json: { token: user.auth_token }
+    @user = User.create(user_params)
+    if @user.valid?
+      render json: {id: @user.id, username: @user.username, type: @user.type}
+    else
+      render json: { error: "does not work" }, status: 422
+    end
   end
 
   def profile
@@ -14,7 +18,6 @@ class UsersController < ApiController
     else
      render json: { username: user.username, name: user.name, type: user.type }
    end
-
   end
 
   private
