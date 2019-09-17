@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_041002) do
+ActiveRecord::Schema.define(version: 2019_09_17_052355) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "carts", force: :cascade do |t|
+    t.string "name"
+    t.string "quantity"
+    t.string "total_price"
+    t.boolean "ordered"
+    t.bigint "user_id"
+    t.bigint "sneaker_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "sneakers", force: :cascade do |t|
     t.string "name"
@@ -32,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_041002) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "auth_token"
   end
 
 end
