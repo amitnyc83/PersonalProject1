@@ -9,15 +9,18 @@ class UsersController < ApiController
 
   def profile
     user = User.find_by_auth_token!(request.headers[:token])
-    user_carts = user.cart
-      render json: {user: {username: user.username, name: user.name}, carts: user_carts}
+    if user.type === "Customer"
+     render json: {username: user.username, name: user.name, type: user.type}
+    else
+     render json: { username: user.username, name: user.name, type: user.type }
+   end
 
   end
 
-private
+  private
 
-def user_params
-  params.require(:user).permit(:username, :password, :name)
-end
+  def user_params
+   params.require(:user).permit(:username, :password, :name, :type)
+  end
 
 end
