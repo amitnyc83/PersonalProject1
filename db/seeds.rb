@@ -6,9 +6,9 @@
 #   user = User.create( name: 'tester1', username: 'testuser1', password_digest: 'password' )
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-User.destroy_all
-Cart.destroy_all
+# 
+# User.destroy_all
+# Cart.destroy_all
 
 testuser = User.create!(username: "test1user", password_digest:BCrypt::Password.create('password'), name: "steven")
 testuser2 = User.create!(username: "test2user", password_digest:BCrypt::Password.create('password'), name: "steven2")

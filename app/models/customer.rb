@@ -1,4 +1,4 @@
 class Customer < User
-  has_many :sneakers
+  has_many :products
 
 end

@@ -1,8 +1,6 @@
 class User < ApplicationRecord
   validates_uniqueness_of :username, uniqueness: { case_sensitive: false}
   has_secure_password
-  has_secure_token :auth_token
-  has_many :carts
 
 
 

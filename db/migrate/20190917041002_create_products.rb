@@ -1,6 +1,6 @@
-class CreateSneakers < ActiveRecord::Migration[6.0]
+class CreateProducts < ActiveRecord::Migration[6.0]
   def change
-    create_table :sneakers do |t|
+    create_table :products do |t|
       t.string :name
       t.string :image
       t.string :description
@@ -9,7 +9,7 @@ class CreateSneakers < ActiveRecord::Migration[6.0]
       t.string :size
       t.string :cost
       t.string :brand
-      t.bigint :seller_id
+      t.belongs_to :seller_id
 
       t.timestamps
     end
