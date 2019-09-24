@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 2019_09_17_053449) do
     t.string "size"
     t.string "cost"
     t.string "brand"
-    t.bigint "seller_id_id"
+    t.bigint "seller_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["seller_id_id"], name: "index_products_on_seller_id_id"
+    t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|

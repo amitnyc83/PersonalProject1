@@ -13,12 +13,13 @@ componentDidMount() {
 }
 
 mapProducts = () => {
-  // console.log("mapping", this.props.coffeeProducts )
-   return (this.props.coffeeProducts.allProducts[0] ? <ProductContainer product={this.props.coffeeProducts.allProducts[0]} /> : null )
+
+  return (this.props.sneakerProducts.allProducts ? <ProductContainer product={this.props.sneakerProducts.allProducts} /> : null )
+
 }
 
 render() {
-  // console.log(this.props.coffeeProducts.allProducts[0])
+  // console.log(this.props.coffeeProducts.allProducts)
   return(
     <div>
     This is the homepage
@@ -31,7 +32,7 @@ render() {
 const mapStateToProps = ({products}) => {
   // console.log(products)
   return {
-    coffeeProducts: products
+    sneakerProducts: products
   }
 }
 

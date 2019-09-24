@@ -7,10 +7,11 @@ class Header extends Component {
 render() {
   return(
     <div class="topnav">
-  <a class="active" href="#home">Home</a>
+  <a class="active" href="/">SneakerX</a>
   <a href="/">Home</a>
   <a href="/login">LogIn</a>
-  <a href="#about">About</a>
+  <a href="/seller">Seller</a>
+
 </div>
   )
 }

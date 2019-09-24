@@ -9,7 +9,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :size
       t.string :cost
       t.string :brand
-      t.belongs_to :seller_id
+      t.belongs_to :seller
 
       t.timestamps
     end

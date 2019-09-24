@@ -1,25 +1,30 @@
-
 import React, { Component } from 'react';
+import AddProduct from './AddProduct'
+
 
 class SellerProdContainer extends Component {
 
-  sellersProducts = () => {
-    return this.props.product.filter(product => {
-      return product["seller_id"] === 1
-    }).map(productinfo => {
-      return <div> {productinfo.name} </div>
-    })
-  }
+sellersProducts = () => {
+  return this.props.product.filter(product => {
+    return product["seller_id"] === 1
+  }).map(productInfo => {
+    return <div>
+      <h2>{productInfo.name}</h2>
+      <h2>{productInfo.price}</h2>
+    </div>
+  })
+}
 
-  render() {
-    console.log(this.sellersProducts())
-    return(
-      <React.Fragment>
-      seller product info
-      {this.sellersProducts()}
-      </React.Fragment>
-    )
-  }
+
+render() {
+  console.log(this.props.product)
+  return(
+    <React.Fragment>
+     {this.sellersProducts()}
+    <AddProduct />
+    </React.Fragment>
+  )
+}
 }
 
 export default SellerProdContainer;
