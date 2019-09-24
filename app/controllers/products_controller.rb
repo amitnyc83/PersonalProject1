@@ -9,14 +9,17 @@ class ProductsController < ApplicationController
   def create
     # byebug
     product = Product.create(product_params)
-    render json: {name: product.name, title: product.title, price: product.price}
+    render json: {name: product.name, brand: product.brand, description: product.description, price: product.price, quantity: product.quantity, image: product.image, seller_id: product.seller_id, cost: product.cost }
 
   end
+
+
+  
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :title, :descripton, :price, :quantity, :sku, :cost, :weight, :seller_id)
+    params.require(:product).permit(:name, :brand, :descripton, :price, :quantity, :cost, :size, :image, :seller_id)
 
   end
 end

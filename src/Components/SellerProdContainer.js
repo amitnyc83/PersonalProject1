@@ -9,8 +9,14 @@ sellersProducts = () => {
     return product["seller_id"] === 1
   }).map(productInfo => {
     return <div>
-      <h2>{productInfo.name}</h2>
-      <h2>{productInfo.price}</h2>
+      <label>Name</label>
+      <h5> {productInfo.name}</h5>
+      <label>Price</label>
+      <h5> {productInfo.price}</h5>
+      <label>Description</label>
+      <h5> {productInfo.description}</h5>
+      <label>Brand</label>
+      <h5> {productInfo.brand}</h5>
     </div>
   })
 }
