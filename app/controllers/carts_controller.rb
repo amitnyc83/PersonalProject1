@@ -23,7 +23,7 @@ end
 private
 
 def cart_params
-  params[:total_price] = params[:quantity] * params[:total_price]
+  # params[:total_price] = params[:quantity] * params[:total_price]
   params.require(:cart).permit(:name, :quantity, :total_price, :ordered, :user_id, :product_id)
 
 end
