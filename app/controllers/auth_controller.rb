@@ -10,7 +10,7 @@ class AuthController < ApplicationController
       # render json: {user_id: user.id, username: user.username}
       # issue_token({user_id: user.id})
       token = JWT.encode({user_id: user.id}, 'SECRET')
-      render json: {user: user.username, user:user.id, jwt: token}
+      render json: {user: user.username, user: user.id, jwt: token}
     else
       render json: {message: "Wrong Password"}, status: 400
     end
@@ -24,7 +24,7 @@ class AuthController < ApplicationController
     id = token["user_id"].to_i
     @user = User.find(id)
     if @user
-      render json: { user_id: @user.id, username: @user.username, type; @user.type}
+      render json: { user_id: @user.id, username: @user.username, type: @user.type}
     else
       render json: { error: "User not found" }, status: 422
   end

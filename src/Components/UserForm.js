@@ -49,7 +49,7 @@ signUphandleSubmit = (event) => {
   .then(user => {
     console.log(user)
 
-    localStorage.setItem('token', user.id)
+    localStorage.setItem('token', user.jwt)
     this.setState({
       user: user
     })
@@ -65,7 +65,7 @@ let token = localStorage.getItem('token')
 console.log(token)
 if (token) {
   fetch(`http://localhost:3001/current_user`, {
-    method: "POST",
+    // method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accepts: "application/json",

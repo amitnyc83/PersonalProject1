@@ -1,17 +1,18 @@
 const initialState = {
-  user: {}
+  user: []
 }
 
 const reducer = (state = initialState, action) => {
   const newState = {...state};
   switch(action.type) {
     case "NEW_USER":
-    return {user: [action.payload]}
+    console.log(action.payload)
+    const theuser = action.payload
+    return {user: theuser}
+
+    default:
+    return newState;
   }
-  return newState;
-
-
-
 }
 
 
