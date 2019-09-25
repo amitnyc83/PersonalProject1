@@ -57,6 +57,7 @@ class ProductPage extends Component {
          <div>Name: {product.name}</div>
          <div>Price: {product.price}</div>
          <div>Quantity: {product.quantity}</div>
+         <div><img src={product.image}/></div>
          <input value={this.state.value} type="text" onChange={(event) => this.handleChange(event, product)} />
          <button>Add To Cart</button>
         </form>

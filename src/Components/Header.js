@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom'
+
 // import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem } from "react-bootstrap";
 
 
@@ -6,12 +8,30 @@ class Header extends Component {
 
   render() {
     return(
-      <div class="topnav">
-        <a class="active" href="/">SneakerX</a>
-        <a href="/">Home</a>
-        <a href="/login">LogIn</a>
-        <a href="/seller">Seller</a>
-        <a href="/cart">Cart</a>
+      <div class="ui huge menu">
+
+        <div class="header item">
+          SneakerX
+        </div>
+        <a class="item" href="/">
+          Our Products
+        </a>
+
+        <NavLink to="/seller">
+          Seller Page
+        </NavLink>
+
+        <div>
+          <NavLink to="/">
+            Home
+          </NavLink>
+        </div>
+        <NavLink to="/cart">
+          Cart
+        </NavLink>
+        <NavLink to="/login">
+          Login/LogOut
+        </NavLink>
       </div>
     )
   }
