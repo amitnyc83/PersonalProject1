@@ -19,31 +19,33 @@ class Header extends Component {
         <div class="header item">
           SneakerX
         </div>
-        <a class="item" href="/">
-          Our Products
-        </a>
-        <NavLink to="/seller" style={{width: "100px"}}>
-          Seller Page
+        <NavLink to="/"style={{width: "100px"}}>
+          Home
         </NavLink>
-        <div>
-          <NavLink to="/" style={{width: "100px"}}>
-            Home
-          </NavLink>
-        </div>
-        <NavLink to="/cart" style={{width: "100px"}}>
-          Cart
-        </NavLink>
+        {this.props.currentUser.type === "Customer" ? <NavLink to="/cart" style={{width: "100px"}}>
+         Cart
+        </NavLink> : null}
         <NavLink to="/login" style={{width: "100px"}}>
-          Log-in
+         Log-in
         </NavLink>
         <NavLink to="/signup" style={{width: "100px"}}>
-          Sign-up
+         Sign-up
         </NavLink>
-        <NavLink to="/" onClick={this.deleteToken} style={{width: "100px"}}>
-          Log Out
-        </NavLink>
+        {this.props.currentUser? <NavLink to="/signUp" onClick={this.deleteToken}style={{width: "100px"}}>
+         Log Out
+        </NavLink> : null}
+        { this.props.currentUser.type === "Seller" ? <NavLink to="/seller" style={{width: "100px"}}>
+         Seller Page
+        </NavLink>: null}
       </div>
     )
+  }
+}
+
+
+const mapStateToProps = state => {
+  return {
+    currentUser: state.user.user
   }
 }
 
@@ -54,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -40,7 +40,7 @@ class ProductPage extends Component {
         quantity: cartProduct.quantity,
         total_price: 10,
         ordered: false,
-        user_id: 1,
+        user_id: this.props.currentUser.user_id,
         product_id: cartProduct.id
       })
     }).then(response => response.json())
@@ -49,7 +49,7 @@ class ProductPage extends Component {
 
 
   render(){
-    console.log(this.props.product)
+    // console.log(this.props.product)
     const {product} = this.props
     return (
       <div>
@@ -59,10 +59,16 @@ class ProductPage extends Component {
          <div>Quantity: {product.quantity}</div>
          <div><img src={product.image}/></div>
          <input value={this.state.value} type="text" onChange={(event) => this.handleChange(event, product)} />
-         <button>Add To Cart</button>
+         <button class="ui basic button"><i class="shop icon"></i>Add To Cart</button>
         </form>
       </div>
     )
+  }
+}
+
+const mapStateToProps = ({user}) => {
+  return {
+    currentuser: user.user
   }
 }
 
@@ -75,4 +81,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(null, mapDispatchToProps)(ProductPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

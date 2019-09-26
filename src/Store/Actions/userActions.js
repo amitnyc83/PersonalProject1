@@ -5,3 +5,11 @@ export const currentUser = (theuser) => {
     payload: theuser
   }
 }
+
+
+export const deleteUser = () => {
+  return {
+    type: "CURRENT_USER",
+    payload: ""
+  }
+}

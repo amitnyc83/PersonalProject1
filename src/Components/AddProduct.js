@@ -23,7 +23,6 @@ class AddProduct extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
     this.props.addProduct(this.state)
     fetch(`http://localhost:3001/products`, {
       method: "POST",
@@ -42,7 +41,7 @@ class AddProduct extends Component {
         seller_id: this.props.currentUser["user_id"]
       })
     }).then(response => response.json())
-    .then(product => console.log(product))
+    // .then(product => console.log(product))
   }
 
 
@@ -80,12 +79,14 @@ class AddProduct extends Component {
           <input name="cost" type="number" onChange={this.handleChange} placeholder="Cost" value={this.state.value}/>
           <label>Quantity</label>
           <input name="quantity" type="text" onChange={this.handleChange} placeholder="quantity" value={this.state.value}/>
-            <CloudinaryContext cloudName="deq2mkfpe">
+          <div>
+            <CloudinaryContext cloudName="amitscloudmanager">
              <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
              <script>cloudinary.setCloudName(amitscloudmanager);</script>
              <a href="#" id="upload_widget_opener" onClick={this.imageSubmit} >Upload multiple images</a>
             </CloudinaryContext>
-          <button>Submit</button>
+          </div>
+          <button class="ui basic button"><i class="shop icon"></i>Add Product</button>
         </form>
       </React.Fragment>
     )

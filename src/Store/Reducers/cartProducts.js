@@ -7,7 +7,7 @@ const reducer = (state = inititalState, action ) => {
     case "ADD_PRODUCT_CART":
     const productToCart = action.payload
     console.log(productToCart)
-    return {cartProducts: [...state.cartProducts, productToCart]}
+    return {cartProducts: [...state.cartProducts.carts, productToCart]}
 
     case "FETCH_CART":
     const fetchedCart = action.payload
