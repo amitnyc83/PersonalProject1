@@ -9,7 +9,6 @@ import {withRouter} from 'react-router-dom'
 class Cart extends Component {
 
   componentDidMount() {
-    console.log("i have mounted")
     let token = localStorage.getItem('token')
     console.log(token)
     if (token) {
