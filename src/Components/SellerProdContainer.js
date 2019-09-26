@@ -7,7 +7,7 @@ class SellerProdContainer extends Component {
 
   sellersProducts = () => {
     return this.props.product.filter(product => {
-      return product["seller_id"] === 1
+      return product["seller_id"] === this.props.currentUser["user_id"]
     }).map(productInfo => {
       return <div>
         <label>Name</label>
@@ -25,7 +25,6 @@ class SellerProdContainer extends Component {
 
 
   render() {
-    console.log(this.props.product)
     return(
       <React.Fragment>
         {this.sellersProducts()}
@@ -36,10 +35,9 @@ class SellerProdContainer extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-  console.log(state)
+const mapStateToProps = ({user}) => {
   return {
-    currentUser: state
+    currentUser: user.user
   }
 }
 

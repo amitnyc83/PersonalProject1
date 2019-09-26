@@ -5,9 +5,12 @@ import SellerProdContainer from './SellerProdContainer'
 
 class SellerPage extends Component{
 
-  componentDidMount() {
-    this.props.fetchProducts()
-
+  componentDidUpdate(prevProps, prevState) {
+   console.log(this.props.coffeeProducts.allProducts.length)
+   console.log(prevProps.coffeeProducts.allProducts.length)
+   if (prevProps.coffeeProducts.allProducts.length !== this.props.coffeeProducts.allProducts.length) {
+     this.props.fetchProducts()
+   }
   }
 
   mapProducts = () => {

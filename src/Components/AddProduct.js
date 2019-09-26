@@ -12,12 +12,10 @@ class AddProduct extends Component {
     description: "",
     image: "",
     cost: "",
-    quantity: "",
-    seller_id: 1
+    quantity: ""
   }
 
   handleChange = (event) => {
-    // console.log(event.target.value)
     this.setState({
       [event.target.name] : event.target.value
     }, () => console.log(this.state))
@@ -41,8 +39,7 @@ class AddProduct extends Component {
         image: this.state.image,
         cost: this.state.cost,
         quantity: this.state.quantity,
-        seller_id: this.state.seller_id
-
+        seller_id: this.props.currentUser["user_id"]
       })
     }).then(response => response.json())
     .then(product => console.log(product))
@@ -95,6 +92,13 @@ class AddProduct extends Component {
   }
 }
 
+
+const mapStateToProps = ({user}) => {
+  return {
+    currentUser: user.user
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addProduct: (newproduct) => dispatch({
@@ -103,4 +107,4 @@ const mapDispatchToProps = (dispatch) => {
     })
   }
 }
-export default connect(null, mapDispatchToProps)(AddProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);
