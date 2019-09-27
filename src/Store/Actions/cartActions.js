@@ -5,6 +5,13 @@ export const addProductCart = (cartProduct) => {
   }
 }
 
+export const deletedCart = (cart) => {
+  return {
+    type: "DELETE_CART",
+    payload: cart
+  }
+}
+
 
 export function fetchCart() {
   return (dispatch) => {

@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import { deletedCart } from '../Store/Actions/cartActions'
+
 
 
 class CartProductsContainer extends Component {
+
+
+  deleteCart = (e, cart) => {
+    console.log(cart)
+    const cartId = cart.id
+    this.props.deletedCart(cart)
+
+    fetch(`http://localhost:3001/carts/${cartId}`, {
+      method: "delete"
+    })
+  }
 
   render() {
     return(
@@ -12,9 +25,10 @@ class CartProductsContainer extends Component {
           <React.Fragment>
             <div>
               <p>{this.props.productCart.name}</p>
-              <p>{this.props.productCart.quantity}</p>
+              <p> Quantity: {this.props.productCart.quantity}</p>
               <p>Price per Item: {this.props.productcart["total_price "]}</p>
               <p>Total Price: ${this.props.productCart.quantity * this.props.productCart["total_price"]}</p>
+              <button onClick={(event) => this.deleteCart(event, this.props.productCart)}>Delete</button>
             </div>
           </React.Fragment>
         : null}
@@ -30,4 +44,10 @@ const mapStateToProps = ({user}) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(CartProductsContainer));
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deletedCart: (cart) => dispatch(deletedCart(cart))
+  }
+}
+
+export default withRouter (connect(mapStateToProps, mapDispatchToProps)(CartProductsContainer));

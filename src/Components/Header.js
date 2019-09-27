@@ -16,37 +16,37 @@ class Header extends Component {
   render() {
     return(
       <div class="ui huge menu">
-        <div className="ui item">
+        <div className="ui item"  style={{color: "red"}}>
           SneakerX
         </div>
         <div className="ui item">
-          <NavLink to="/"style={{width: "100px"}}>
+          <NavLink to="/"style={{width: "100px", color: "green"}}>
             Home
           </NavLink>
         </div>
         <div className="ui item">
-          {this.props.currentUser.type === "Customer" ? <NavLink to="/cart" style={{width: "100px"}}>
+          {this.props.currentUser.type === "Customer" ? <NavLink to="/cart" style={{width: "100px", color: "green"}}>
            Cart
           </NavLink> : null}
         </div>
         <div className="right menu">
           <div className="ui item">
-            <NavLink to="/login" style={{width: "100px"}}>
+            <NavLink to="/login" style={{width: "100px", color: "green"}}>
              Log-in
             </NavLink>
           </div>
           <div className="ui item">
-            <NavLink to="/signup" style={{width: "100px"}}>
+            <NavLink to="/signup" style={{width: "100px", color: "green"}}>
               Sign-up
             </NavLink>
           </div>
           <div className="ui item">
-            {this.props.currentUser? <NavLink to="/signUp" onClick={this.deleteToken}style={{width: "100px"}}>
+            {this.props.currentUser? <NavLink to="/signUp" onClick={this.deleteToken}style={{width: "100px", color: "wgreen"}}>
               Log Out
             </NavLink> : null}
           </div>
           <div className="ui item">
-            { this.props.currentUser.type === "Seller" ? <NavLink to="/seller" style={{width: "100px"}}>
+            { this.props.currentUser.type === "Seller" ? <NavLink to="/seller" style={{width: "100px", color: "green"}}>
               Seller Page
             </NavLink>: null}
           </div>
