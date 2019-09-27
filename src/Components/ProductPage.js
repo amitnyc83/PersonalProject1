@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addProductCart } from '../Store/Actions/cartActions'
+import { addProductCart } from '../Store/Actions/cartActions';
+import IndividualProductInfo from './IndividualProductInfo';
 
 
 class ProductPage extends Component {
@@ -47,21 +48,30 @@ class ProductPage extends Component {
     })
   }
 
+  clickedProduct = (event, clickedProduct) => {
+    this.props.productClicked(clickedProduct)
+  }
+
 
   render(){
     const {product} = this.props
+
+    let quantityArray = [];
+    for (let i = 1; i < parseInt(product.quantity); i++){
+      quantityArray.push(i)
+    }
     return (
       <div>
         <form onSubmit={(e) => this.handleSubmit(e, product)}>
           <div class="ui divided items">
             <div class="item">
               <div class="image">
-                <img src={product.image}/>
+                <img src={product.image}  onClick={(event) => this.clickedProduct(event, product)}/>
               </div>
               <div className="content">
                 <a class="header">{product.title}</a>
                 <div class="meta">
-                  <span class="cinema">{product.name} 14</span>
+                  <span class="cinema">{product.name} </span>
                 </div>
                 <label>Description</label>
                 <div class="description">
@@ -70,10 +80,16 @@ class ProductPage extends Component {
               </div>
             </div>
           </div>
-          <input value={this.state.value} type="text" onChange={(event) => this.handleChange(event, product)} />
-          <div class="extra">
-            <button class="ui basic button"><i class="shop icon"></i>Add To Cart</button>
-          </div>
+          { parseInt(product.quantity) > 0 ?
+            <React.Fragment>
+              <select onChange={(event) => this.handleChange(event, product)} name="quantitySelected" class="ui dropdown"><option value="0">Quantity</option>
+                {quantityArray.map(num => <option value={num.toString()}>{num}</option>)}
+              </select>
+              <div class="extra">
+                <button class="ui primary button"><i class="shop icon"></i>Add To Cart</button>
+              </div>
+            </React.Fragment> : <span id="soldout">Sold Out</span>
+          }
         </form>
       </div>
     )

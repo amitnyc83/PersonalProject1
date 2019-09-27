@@ -22,7 +22,7 @@ render() {
   // console.log(this.props.coffeeProducts.allProducts)
   return(
     <div>
-    This is the homepage
+      <h2>WELCOME TO SNEAKERX! YOUR ONE STOP TO BUY AND SELL SNEAKERS</h2>
     {this.mapProducts()}
     </div>
   )

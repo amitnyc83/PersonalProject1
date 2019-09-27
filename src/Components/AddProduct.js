@@ -78,13 +78,11 @@ class AddProduct extends Component {
           <input name="cost" type="number" onChange={this.handleChange} placeholder="Cost" value={this.state.value}/>
           <label>Quantity</label>
           <input name="quantity" type="text" onChange={this.handleChange} placeholder="quantity" value={this.state.value}/>
-          <div>
-            <CloudinaryContext cloudName="amitscloudmanager">
-             <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-             <script>cloudinary.setCloudName(amitscloudmanager);</script>
-             <a href="#" id="upload_widget_opener" onClick={this.imageSubmit} >Upload multiple images</a>
-            </CloudinaryContext>
-          </div>
+          <CloudinaryContext cloudName="amitscloudmanager">
+            <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+            <script>cloudinary.setCloudName(amitscloudmanager);</script>
+            <button href="#" id="upload_widget_opener" onClick={this.imageSubmit} >Upload multiple images</button>
+          </CloudinaryContext>
           <button class="ui basic button"><i class="shop icon"></i>Add Product</button>
         </form>
       </React.Fragment>
