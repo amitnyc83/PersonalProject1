@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Form } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom'
 
 class SignUpForm extends Component {
@@ -37,8 +36,8 @@ class SignUpForm extends Component {
       })
     }).then(resp => resp.json())
     .then(user => {
-      if (user.error != "does not work"){
-        this .props.currentUser(user)
+      if (user.error !== "does not work"){
+        this.props.currentUser(user)
         localStorage.setItem('token', user.jwt)
         if (user.type === "Customer"){
          this.props.history.push("/cart")

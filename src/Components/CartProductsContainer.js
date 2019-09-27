@@ -11,7 +11,6 @@ class CartProductsContainer extends Component {
 
 
   deleteCart = (e, cart) => {
-    console.log(cart)
     const cartId = cart.id
     this.props.deletedCart(cart)
 

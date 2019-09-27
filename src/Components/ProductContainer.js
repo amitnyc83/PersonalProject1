@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { addProductCart } from '../Store/Actions/cartActions';
 import ProductPage from './ProductPage'
 

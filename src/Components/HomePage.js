@@ -7,9 +7,7 @@ import ProductContainer from './ProductContainer'
 class HomePage extends Component {
 
 componentDidMount() {
-  console.log("i have mounted")
   this.props.fetchProducts()
-
 }
 
 mapProducts = () => {

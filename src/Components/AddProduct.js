@@ -78,7 +78,7 @@ class AddProduct extends Component {
           <input name="cost" type="number" onChange={this.handleChange} placeholder="Cost" value={this.state.value}/>
           <label>Quantity</label>
           <input name="quantity" type="text" onChange={this.handleChange} placeholder="quantity" value={this.state.value}/>
-          <button class="ui basic button"><i class="shop icon"></i>Add Product</button>
+          <button className="ui basic button"><i className="shop icon"></i>Add Product</button>
         </form>
         <CloudinaryContext cloudName="amitscloudmanager">
           <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>

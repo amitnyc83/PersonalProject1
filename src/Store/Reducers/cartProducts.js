@@ -20,6 +20,9 @@ const reducer = (state = inititalState, action ) => {
     })
     return {cartProducts: {carts: newArray}}
 
+    case "CART_ORDERED":
+    return {cartProducts: {carts: []}}
+
     default:
     return state
   }

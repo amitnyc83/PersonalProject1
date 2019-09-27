@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import UserForm from '../src/Components/UserForm';
+// import UserForm from '../src/Components/UserForm';
 import SignUpForm from '../src/Components/SignUpForm';
 import HomePage from '../src/Components/HomePage';
 import Header from '../src/Components/Header';
@@ -22,10 +22,8 @@ class App extends Component {
 
   componentDidMount = () => {
     let token = localStorage.getItem('token')
-    console.log(token)
     if (token) {
       fetch(`http://localhost:3001/current_user`, {
-        // method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accepts: "application/json",
@@ -33,10 +31,6 @@ class App extends Component {
         }
       }).then(response => response.json())
       .then(resp => {
-        console.log(resp);
-        // this.setState({
-        //   user:resp
-        // })
         this.props.currentUser(resp)
         if(resp.type === "Seller"){
           this.props.history.push("/seller")

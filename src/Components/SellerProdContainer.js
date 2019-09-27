@@ -9,7 +9,7 @@ class SellerProdContainer extends Component {
     return this.props.product.filter(product => {
       return product["seller_id"] === this.props.currentUser["user_id"]
     }).map(productInfo => {
-      return <div>
+      return <div key={productInfo.id}>
         <label>Name</label>
         <h5> {productInfo.name}</h5>
         <label>Price</label>
@@ -18,7 +18,7 @@ class SellerProdContainer extends Component {
         <h5> {productInfo.description}</h5>
         <label>Brand</label>
         <h5> {productInfo.brand}</h5>
-        <img src={productInfo.image} />
+        <img src={productInfo.image} alt={productInfo.name} />
       </div>
     })
   }

@@ -15,7 +15,7 @@ class Header extends Component {
 
   render() {
     return(
-      <div class="ui massive menu">
+      <div className="ui massive menu">
         <div className="ui item"  style={{color: "red"}}>
           SneakerX
         </div>
@@ -41,7 +41,7 @@ class Header extends Component {
             </NavLink>
           </div>
           <div className="ui item">
-            {this.props.currentUser? <NavLink to="/signUp" onClick={this.deleteToken}style={{width: "100px", color: "wgreen"}}>
+            {this.props.currentUser? <NavLink to="/signUp" onClick={this.deleteToken}style={{width: "100px", color: "green"}}>
               Log Out
             </NavLink> : null}
           </div>

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCart } from '../Store/Actions/cartActions';
 import CartProductsContainer from './CartProductsContainer';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import  { cartOrdered }  from '../Store/Actions/cartActions'
 
 
 
@@ -33,27 +34,65 @@ class Cart extends Component {
   cartCheckout = (e, carts) => {
     let cartFiltered = this.props.cartProducts.carts.filter(cart =>  cart.user_id === this.props.user.user_id)
     let orderedCarts = cartFiltered.map(cart =>
-     { cart.ordered = ( cart.ordered === false ? true : false)
+      { cart.ordered = ( cart.ordered === false ? true : false)
        return cart
       }
     )
+
+    this.props.cartOrdered()
     orderedCarts.forEach(cart => {
-       return fetch(`http://localhost:3001/carts/${cart.id}`, {
-         method: "PATCH",
-         headers: {
-           "Content-Type": "application/json",
-           Accept: "application/json"
-         },
-         body: JSON.stringify({
-           ordered: cart.ordered
-         })
-       }).then(response => response.json())
-       .then(resp => {
-         console.log(resp)
-       })
-     })
+      return fetch(`http://localhost:3001/carts/${cart.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          ordered: cart.ordered
+        })
+      }).then(response => response.json())
+      .then(resp => {
+        console.log(resp)
+      })
+    })
+    let cartArray = [];
+    let productArray = [];
+    let theProducts = this.props.allProducts;
+    let subtractQuantity = theProducts.map(product => {
+      orderedCarts.map(cart => {
+        if (cart.product_id == product.id) {
+          cartArray.push(cart)
+          productArray.push(product)
+        }
+      })
+    })
 
+   let productQty;
+   let cartQty;
 
+   cartArray.forEach(cart => {
+      productArray.forEach(product => {
+        if(product.id === cart.product_id) {
+          productQty = product.quantity;
+          cartQty = cart.quantity;
+          let quantityRemaining = productQty - cartQty;
+          return fetch(`http://localhost:3001/products/${product.id}`, {
+            method: "PATCH",
+            headers: {
+             "Content-type": "application/json",
+             Accept: "application/json"
+            },
+            body: JSON.stringify({
+              quantity: quantityRemaining
+            })
+          }).then(response => response.json())
+          .then(resp => {
+            console.log(resp)
+          })
+
+        }
+      })
+    })
   }
 
   render() {
@@ -71,14 +110,16 @@ class Cart extends Component {
 const mapStateToProps = (state) => {
   return {
     cartProducts: state.cartProducts.cartProducts,
-    user: state.user.user
+    user: state.user.user,
+    allProducts: state.products.allProducts
   }
 }
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCart: () => dispatch(fetchCart())
+    fetchCart: () => dispatch(fetchCart()),
+    cartOrdered: () => dispatch(cartOrdered())
   }
 }
 
