@@ -12,7 +12,6 @@ class CartsController < ApplicationController
   end
 
   def create
-
     cart = Cart.create(cart_params)
     if cart.valid?
       render json: { message: 'ok', cart: cart }
@@ -20,6 +19,12 @@ class CartsController < ApplicationController
       render json: {message: "error: could not add to cart", cart: cart}
     end
   end
+
+  def update
+    cart = cart.find(params[:id])
+    cart.update(ordered: cart_params[:ordered])
+    render json: {message: "updated", cart: cart}
+  end 
 
   def destroy
     cart = cart.find(params[:id])

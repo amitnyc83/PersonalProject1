@@ -10,11 +10,20 @@ class ProductsController < ApplicationController
     # byebug
     product = Product.create(product_params)
     render json: {name: product.name, brand: product.brand, description: product.description, price: product.price, quantity: product.quantity, image: product.image, seller_id: product.seller_id, cost: product.cost }
-
   end
 
 
-  
+  def show
+    product = Product.find(params[:id])
+    render json: {product: product}
+  end
+
+  def update
+    product = Product.find(params[:id])
+    product.update(product_params)
+    render json: {product: product, message: "quantity has been updated"}
+  end
+
 
   private
 
