@@ -37,8 +37,12 @@ class App extends Component {
         //   user:resp
         // })
         this.props.currentUser(resp)
-        this.props.history.push("/cart")
-        // this.props.renderProps.history.push("/cart")
+        if(resp.type === "Seller"){
+          this.props.history.push("/seller")
+        }
+        else if (resp.type === "Customer"){
+          this.props.history.push("/cart")
+        }
       })
     }
   }
@@ -47,6 +51,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+
           <Header />
           <Switch>
           <Route path="/login" exact render={(renderProps) => (<LoginForm renderProps={renderProps}/>)} />
@@ -55,6 +60,8 @@ class App extends Component {
           <Route path="/cart" exact render={(renderProps) => (<Cart />)} />
           <Route path="/seller" exact render={() => (<SellerPage />)} />
           </Switch>
+
+
       </React.Fragment>
     );
   }

@@ -7,9 +7,7 @@ import { withRouter } from 'react-router-dom'
 class SellerPage extends Component{
 
   componentDidMount() {
-    // console.log("i have mounted")
     let token = localStorage.getItem('token')
-    console.log(token)
     if (token) {
       fetch(`http://localhost:3001/current_user`, {
         // method: "POST",
@@ -20,18 +18,11 @@ class SellerPage extends Component{
         }
       }).then(response => response.json())
       .then(resp => {
-        console.log(resp);
-        // this.setState({
-        //   user:resp
-        // })
         this.props.fetchProducts()
-        // this.props.renderProps.history.push("/cart")
       })
     }
     else {
-      console.log('inside the else', this.props.history);;
       this.props.history.push('/login')
-      // push them to the route you want
     }
   }
 
@@ -46,9 +37,7 @@ class SellerPage extends Component{
   }
 
 render() {
-  console.log(this.props.sneakerProducts.allProducts)
   return(
-
     <React.Fragment>
       This is seller Central
       {this.mapProducts()}
@@ -57,7 +46,6 @@ render() {
 }
 }
 const mapStateToProps = ({products}) => {
-  console.log(products)
   return {
     sneakerProducts: products
   }

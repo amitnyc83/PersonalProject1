@@ -22,22 +22,15 @@ class Cart extends Component {
       }).then(response => response.json())
       .then(resp => {
         console.log(resp);
-        // this.setState({
-        //   user:resp
-        // })
         this.props.fetchCart()
-        // this.props.renderProps.history.push("/cart")
       })
     }
     else {
-      // console.log('inside the else', this.props.history);;
       this.props.history.push('/login')
-      // push them to the route you want
     }
   }
 
   render() {
-    // console.log(this.props.cartProducts)
     return(
       <div>
       Welcome to your Cart!

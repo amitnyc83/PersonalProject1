@@ -16,7 +16,6 @@ class SignUpForm extends Component {
 
 
   signUphandleChange = (event) => {
-    console.log(this.state)
     this.setState({
       user: {
         ...this.state.user,
@@ -26,13 +25,7 @@ class SignUpForm extends Component {
   }
 
   signUphandleSubmit = (event) => {
-    // console.log(event)
     event.preventDefault()
-    console.log(this.state)
-    console.log("submitted")
-    // debugger
-    // const newuser = this.state.user
-    // this.props.createNewUser(newuser)
     fetch(`http://localhost:3001/users`, {
       method: "POST",
       headers: {
@@ -44,7 +37,6 @@ class SignUpForm extends Component {
       })
     }).then(resp => resp.json())
     .then(user => {
-      console.log(user)
       if (user.error != "does not work"){
         this .props.currentUser(user)
         localStorage.setItem('token', user.jwt)
@@ -59,12 +51,6 @@ class SignUpForm extends Component {
           this.props.currentUser(noUser)
         }
       }
-
-      // this.setState({
-      //   user: user
-      // })
-      this.props.currentUser(user)
-      this.props.history.push("/cart")
     })
   }
 

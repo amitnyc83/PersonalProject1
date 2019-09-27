@@ -49,17 +49,16 @@ class AddProduct extends Component {
     var myUploadWidget;
     myUploadWidget = window.cloudinary.openUploadWidget({
       cloudName: 'amitscloudmanager',
-      uploadPreset: 'gugnl3kp'},
+      uploadPreset: 'nrpiwlkk'},
       (error, result) => {
         if (result.info.secure_url){
          this.setState({
            image: result.info.secure_url
-          }, ()=> {
-           console.log(this.state)})
-          }
+         })
         }
-      );
-    }
+      }
+    );
+  }
 
 
   render() {

@@ -7,7 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from "redux-thunk";
-import index from '../src/Store/Reducers/index'
+import index from '../src/Store/Reducers/index';
+import semantic from './../node_modules/semantic-ui/dist/semantic.css';
 
 
 

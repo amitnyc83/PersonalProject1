@@ -12,7 +12,6 @@ class ProductPage extends Component {
 
 
   handleChange = (event, product) => {
-    console.log(event.target.value, product)
     this.setState({
       quantitySelected: event.target.value
     })
@@ -22,7 +21,6 @@ class ProductPage extends Component {
   handleSubmit = (e, cartProduct) => {
     e.preventDefault()
     cartProduct["quantity"] = this.state.quantitySelected
-    console.log(cartProduct)
     this.setState({
       selectedProduct: cartProduct
     })
@@ -51,17 +49,31 @@ class ProductPage extends Component {
 
 
   render(){
-    // console.log(this.props.product)
     const {product} = this.props
     return (
       <div>
         <form onSubmit={(e) => this.handleSubmit(e, product)}>
-         <div>Name: {product.name}</div>
-         <div>Price: {product.price}</div>
-         <div>Quantity: {product.quantity}</div>
-         <div><img src={product.image}/></div>
-         <input value={this.state.value} type="text" onChange={(event) => this.handleChange(event, product)} />
-         <button class="ui basic button"><i class="shop icon"></i>Add To Cart</button>
+          <div class="ui divided items">
+            <div class="item">
+              <div class="image">
+                <img src={product.image}/>
+              </div>
+              <div className="content">
+                <a class="header">{product.title}</a>
+                <div class="meta">
+                  <span class="cinema">{product.name} 14</span>
+                </div>
+                <label>Description</label>
+                <div class="description">
+                  <p>{product.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input value={this.state.value} type="text" onChange={(event) => this.handleChange(event, product)} />
+          <div class="extra">
+            <button class="ui basic button"><i class="shop icon"></i>Add To Cart</button>
+          </div>
         </form>
       </div>
     )

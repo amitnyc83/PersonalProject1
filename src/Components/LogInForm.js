@@ -14,33 +14,9 @@ class LoginForm extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   console.log("i have mounted")
-  //
-  //   let token = localStorage.getItem('token')
-  //   console.log(token)
-  //   if (token) {
-  //     fetch(`http://localhost:3001/current_user`, {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accepts: "application/json",
-  //         Authorization: token
-  //       }
-  //     }).then(response => response.json())
-  //     .then(resp => {
-  //       console.log(resp);
-  //       this.props.renderProps.history.push("/cart")
-  //     })
-  //   }
-  //   else {
-  //     console.log('inside the else', this.props.history);;
-  //     this.props.history.push('/login')
-  //     // push them to the route you want
-  //   }
-  // }
+
 
   signInhandleChange = (event) => {
-  // console.log(event.target.value)
     this.setState({
       user: {
         ...this.state.user,
@@ -51,7 +27,6 @@ class LoginForm extends Component {
 
   signInhandleSubmit = (e) => {
     e.preventDefault()
-    console.log("here", this.state.user)
     fetch(`http://localhost:3001/login`, {
       method: "POST",
       headers: {
@@ -64,7 +39,6 @@ class LoginForm extends Component {
     }).then(response => response.json())
     .then(resp => {
       if (resp.jwt) {
-        console.log(resp)
         this.props.currentUser(resp)
         localStorage.setItem('token', resp.jwt)
         if (resp.type === "Customer"){

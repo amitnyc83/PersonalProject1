@@ -14,7 +14,7 @@ class CartProductsContainer extends Component {
            <div>Total Price: {this.props.productcart["total_price "]}</div>
            <div>Quantity: ${this.props.productCart.quantity * this.props.productCart["total_price"]}</div>
          </React.Fragment>
-         : null}
+        : null}
       </div>
     )
   }
