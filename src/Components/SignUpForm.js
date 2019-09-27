@@ -45,7 +45,21 @@ class SignUpForm extends Component {
     }).then(resp => resp.json())
     .then(user => {
       console.log(user)
-      localStorage.setItem('token', user.jwt)
+      if (user.error != "does not work"){
+        this .props.currentUser(user)
+        localStorage.setItem('token', user.jwt)
+        if (user.type === "Customer"){
+         this.props.history.push("/cart")
+        }
+        else if (user.type === "Seller") {
+          this.props.history.push("/seller")
+        }
+        else {
+          const noUser = ""
+          this.props.currentUser(noUser)
+        }
+      }
+
       // this.setState({
       //   user: user
       // })

@@ -44,7 +44,9 @@ class ProductPage extends Component {
         product_id: cartProduct.id
       })
     }).then(response => response.json())
-    .then(cart => console.log(cart))
+    .then(cart => {
+      this.props.addProductCart(cart)
+    })
   }
 
 
@@ -66,9 +68,10 @@ class ProductPage extends Component {
   }
 }
 
-const mapStateToProps = ({user}) => {
+const mapStateToProps = state => {
   return {
-    currentuser: user.user
+    currentuser: state.user.user,
+    productInCart: state.cartProducts.cartProducts
   }
 }
 

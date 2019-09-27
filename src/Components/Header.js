@@ -16,27 +16,41 @@ class Header extends Component {
   render() {
     return(
       <div class="ui huge menu">
-        <div class="header item">
+        <div className="ui item">
           SneakerX
         </div>
-        <NavLink to="/"style={{width: "100px"}}>
-          Home
-        </NavLink>
-        {this.props.currentUser.type === "Customer" ? <NavLink to="/cart" style={{width: "100px"}}>
-         Cart
-        </NavLink> : null}
-        <NavLink to="/login" style={{width: "100px"}}>
-         Log-in
-        </NavLink>
-        <NavLink to="/signup" style={{width: "100px"}}>
-         Sign-up
-        </NavLink>
-        {this.props.currentUser? <NavLink to="/signUp" onClick={this.deleteToken}style={{width: "100px"}}>
-         Log Out
-        </NavLink> : null}
-        { this.props.currentUser.type === "Seller" ? <NavLink to="/seller" style={{width: "100px"}}>
-         Seller Page
-        </NavLink>: null}
+        <div className="ui item">
+          <NavLink to="/"style={{width: "100px"}}>
+            Home
+          </NavLink>
+        </div>
+        <div className="ui item">
+          {this.props.currentUser.type === "Customer" ? <NavLink to="/cart" style={{width: "100px"}}>
+           Cart
+          </NavLink> : null}
+        </div>
+        <div className="right menu">
+          <div className="ui item">
+            <NavLink to="/login" style={{width: "100px"}}>
+             Log-in
+            </NavLink>
+          </div>
+          <div className="ui item">
+            <NavLink to="/signup" style={{width: "100px"}}>
+              Sign-up
+            </NavLink>
+          </div>
+          <div className="ui item">
+            {this.props.currentUser? <NavLink to="/signUp" onClick={this.deleteToken}style={{width: "100px"}}>
+              Log Out
+            </NavLink> : null}
+          </div>
+          <div className="ui item">
+            { this.props.currentUser.type === "Seller" ? <NavLink to="/seller" style={{width: "100px"}}>
+              Seller Page
+            </NavLink>: null}
+          </div>
+        </div>
       </div>
     )
   }

@@ -21,6 +21,12 @@ class CartsController < ApplicationController
     end
   end
 
+  def destroy
+    cart = cart.find(params[:id])
+    cart.destroy
+    render json: {message: "cart has been destroyed"}
+  end
+
   private
 
   def cart_params
