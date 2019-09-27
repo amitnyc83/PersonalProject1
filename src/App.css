@@ -59,6 +59,10 @@ label {
   width: 49%;
 }
 
+.ui.massive.menu {
+  background-color: rgb(1, 8, 20) !important;
+}
+
 div.content {
   background: rgb(219, 245, 244) !important;
   /* border-style: solid !important; */
@@ -156,4 +160,11 @@ margin: 0 auto !important;
 button.ui.green.button {
   font-size: 12px !important;
   margin: 2px !important;
+}
+
+.delete-button {
+  color: white;
+  background-color: red;
+  border-radius: 9px;
+  font-size: 16px;
 }

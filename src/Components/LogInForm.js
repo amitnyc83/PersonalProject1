@@ -45,7 +45,7 @@ class LoginForm extends Component {
           this.props.history.push("/cart")
         }
         else if (resp.type === "Seller") {
-         this.props.history.push("/cart")
+         this.props.history.push("/seller")
         }
       }
     })

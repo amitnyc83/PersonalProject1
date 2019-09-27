@@ -15,7 +15,7 @@ class Header extends Component {
 
   render() {
     return(
-      <div class="ui huge menu">
+      <div class="ui massive menu">
         <div className="ui item"  style={{color: "red"}}>
           SneakerX
         </div>

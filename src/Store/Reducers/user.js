@@ -3,7 +3,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  console.log("THIS IS USER STATE", state, action.type)
   switch(action.type) {
     case "CURRENT_USER":
     return {...state, user: action.payload}

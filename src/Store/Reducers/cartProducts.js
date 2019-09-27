@@ -11,7 +11,14 @@ const reducer = (state = inititalState, action ) => {
 
     case "FETCH_CART":
     const fetchedCart = action.payload
-    return {cartProducts: fetchedCart}
+    let filteredCurrentCarts = fetchedCart.carts.filter(cart => cart.ordered === false)
+    return {cartProducts: {carts:filteredCurrentCarts}}
+
+    case "DELETE_CART":
+    const newArray = state.cartProducts.carts.filter(cart => {
+      return cart !== action.payload
+    })
+    return {cartProducts: {carts: newArray}}
 
     default:
     return state

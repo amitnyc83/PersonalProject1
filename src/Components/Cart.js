@@ -30,20 +30,48 @@ class Cart extends Component {
     }
   }
 
+  cartCheckout = (e, carts) => {
+    let cartFiltered = this.props.cartProducts.carts.filter(cart =>  cart.user_id === this.props.user.user_id)
+    let orderedCarts = cartFiltered.map(cart =>
+     { cart.ordered = ( cart.ordered === false ? true : false)
+       return cart
+      }
+    )
+    orderedCarts.forEach(cart => {
+       return fetch(`http://localhost:3001/carts/${cart.id}`, {
+         method: "PATCH",
+         headers: {
+           "Content-Type": "application/json",
+           Accept: "application/json"
+         },
+         body: JSON.stringify({
+           ordered: cart.ordered
+         })
+       }).then(response => response.json())
+       .then(resp => {
+         console.log(resp)
+       })
+     })
+
+
+  }
+
   render() {
     return(
       <div>
-      Welcome to your Cart!
-       {this.props.cartProducts.carts ? this.props.cartProducts.carts.map(cart => <CartProductsContainer key={cart.id} productCart={cart} />) : <div>Your Cart is empty</div> }
+       Welcome to your Cart!
+       {this.props.cartProducts.carts ? this.props.cartProducts.carts.filter(cart =>  cart.user_id === this.props.user.user_id).map(cart => <CartProductsContainer key={cart.id} productCart={cart} />) : <div>Your Carty is empty</div> }
+       <button onClick={this.cartCheckout}>Check-out</button>
       </div>
     )
   }
 }
 
 
-const mapStateToProps = ({cartProducts}) => {
+const mapStateToProps = (state) => {
   return {
-    cartProducts: cartProducts.cartProducts
+    cartProducts: state.cartProducts.cartProducts,
+    user: state.user.user
   }
 }
 
