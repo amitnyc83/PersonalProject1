@@ -39,7 +39,7 @@ class SellerPage extends Component{
 render() {
   return(
     <React.Fragment>
-      This is seller Central
+      <h1>Welcome to seller Central</h1>
       {this.mapProducts()}
     </React.Fragment>
   )

@@ -39,7 +39,8 @@ class ProductPage extends Component {
         total_price: totalCartPrice,
         ordered: false,
         user_id: this.props.currentUser.user_id,
-        product_id: cartProduct.id
+        product_id: cartProduct.id,
+        image: cartProduct.image
       })
     }).then(response => response.json())
     .then(cart => {
@@ -65,7 +66,8 @@ class ProductPage extends Component {
           <form onSubmit={(e) => this.handleSubmit(e, product)}>
             <img class="home-product-image" src={product.image} onClick={(event) => this.clickedProduct(event, product)}/>
             <a id="main-title">{product.title}</a>
-            <p class="home-product-name">{product.name} </p>
+            <p class="home-product-name">{product.name}</p>
+            <p class="home-product-price">${product.price}</p>
             <div>
             </div>
             { parseInt(product.quantity) > 0 ?

@@ -26,7 +26,7 @@ class Header extends Component {
         </div>
         <div className="ui item">
           {this.props.currentUser.type === "Customer" ? <NavLink to="/cart" style={{width: "100px", color: "green"}}>
-           Cart
+           {this.props.currentUser.username} Cart
           </NavLink> : null}
         </div>
         <div className="right menu">

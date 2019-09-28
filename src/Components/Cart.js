@@ -96,10 +96,9 @@ class Cart extends Component {
   render() {
     return(
       <div>
-        Hello, {this.props.user.username}
-       <p>Welcome to your Cart!</p>
+        <div class="cart-customer-name">Welcome to your cart {this.props.user.username}!</div>
        {this.props.cartProducts.carts ? this.props.cartProducts.carts.filter(cart =>  cart.user_id === this.props.user.user_id).map(cart => <CartProductsContainer key={cart.id} productCart={cart} />) : <div>Your Carty is empty</div> }
-       <button onClick={this.cartCheckout}>Check-out</button>
+       <button class="checkout-button" onClick={this.cartCheckout}>Check-out</button>
       </div>
     )
   }

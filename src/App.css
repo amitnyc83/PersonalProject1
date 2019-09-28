@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|PT+Sans+Caption|Patua+One|Source+Code+Pro|Yantramanav" rel="stylesheet">
 
 .App {
   text-align: center;
@@ -45,7 +46,6 @@ input:focus, select {
   color: white;
   weight: 700;
   font-size: 15px;
-  /* box-sizing: border-box; */
 }
 
 label {
@@ -62,53 +62,63 @@ label {
 .ui.massive.menu {
   background-color: rgb(254, 254, 254) !important;
   margin-bottom: 0px !important;
+  font-family: 'Luckiest Guy', sans-serif;
+}
+
+.ui.item:hover {
+  background-color: lightblue !important;
+  transform: scale(1.05) !important;
+
 }
 
 #sale-header {
-text-align: center;
-background-color: blue;
-color: white;
-/* padding-top: 20px; */
-font-size: 20px;
-height:  40px;
-line-height: 40px;
-border-radius: 2px;
+  text-align: center;
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  height:  45px;
+  line-height: 40px;
+  border-radius: 2px;
 }
 
-/* homepage */
+/* HOMEPAGE */
+
+
 .main-home-product-container {
   display: flex !important;
   margin: auto;
   float: left;
-  /* width: 33.33%; */
   width: 20%;
-   padding: 10px;
-   text-align: center;
-   top: 20vh; left: 20vw;
-   margin: 20px;
+  padding: 10px;
+  text-align: center;
+  top: 20vh; left: 20vw;
+  margin: 20px;
 }
 
 .secondary-home-container {
-  /* content: "";
-   display: table;
-   clear: both; */
-   display: inline;
-   border-style: hidden;
-   border-color: rgb(221, 219, 226);
-   /* margin: 10px; */
-   padding: 20px;
-   border-radius: 7px;
-   border-width: 1px;
+  display: inline;
+  border-style: hidden;
+  border-color: rgb(221, 219, 226);
+  padding: 20px;
+  border-radius: 7px;
+  border-width: 1px;
 }
 
 .home-product-name {
-margin-top: 3px;
+  margin-top: 3px;
+  margin-top: 2px;
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+.home-product-price {
+  font-size: 19px;
 }
 
 .home-product-image {
   width:  300px;
-  height: 350px;
-  margin-bottom: 4px;
+  height: 420px;
+  padding-bottom: 20px;
 }
 
 .add-to-cart-button {
@@ -116,12 +126,12 @@ margin-top: 3px;
   background-color: orange;
   color: white;
   border-radius: 3px;
-  padding: 7px 13px;
+  padding: 7px 35px;
   transition-duration: 0.4s;
 
 }
 .add-to-cart-button:hover {
-  background-color: #4CAF50; /* Green */
+  background-color: blue;
   color: white;
 }
 
@@ -129,24 +139,16 @@ margin-top: 3px;
 
 #main-title {
   white-space: nowrap;
+  font-size: 20px;
 }
 
 div.content {
   background: rgb(219, 245, 244) !important;
-  /* border-style: solid !important; */
-  /* border-color: rgb(219, 245, 244) !important; */
   border-radius: 7px !important;
   margin-top: 30px;
 }
 
-/*img {
-max-width: 100% !important;
-max-height: 100% !important;
-width: auto !important;
 
-display: block !important;
-margin: 0 auto !important;
-}*/
 
 #soldout {
   font-size: 15px;
@@ -163,61 +165,62 @@ margin: 0 auto !important;
   top: 20vh; left: 27vw;
   text-align: center;
   align-items: flex-start;
-  /* padding: 40px; */
+  margin-top: 60px;
 }
 
 #product-info-main-container div {
-  font-family: 'Sarabun', sans-serif;
+  font-family: 'PT Sans Caption', sans-serif;
   margin: 20px;
 }
 
 #product-info-name {
-  font-size: 40px;
-  padding-bottom: 10px;
-  /* position: absolute; */
-  /* right: 350px;
-  top: 150px; */
-
+  font-size: 27px;
+  padding-bottom: 15px;
+  font-family: 'Source Code Pro', monospace;
+  boredr-bottom: 3px solid grey;
 }
 
 #product-info-title {
-  font-size: 23px;
-  padding-bottom: 10px;
-  /* position: absolute; */
-  /* right: 330px; */
-  /* text-align: center; */
-  /* top: 190px; */
-  font-family: 'Sarabun', sans-serif;
-
+  font-size: 40px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid grey;
 }
 #product-info-price {
   font-size: 20px;
-  /* position: absolute; */
-  /* right: 440px;
-  /* top: 230px; */
-  /* text-align: center; */
   margin-right: 120px !important;
 }
 
 #product-info-description {
+  font-size: 16px;
+  line-height: 21px;
+  border-top: 3px solid-grey;
+  padding-top: 12px;
+}
+
+#product-info-dscription:hover {
+  transform: scale(1.2);
   font-size: 15px;
-  /* position: absolute; */
-  max-width: 30vw;
-  /* right:0px;
-  top: 300px; */
-  /* text-align: center; */
 }
 
 #product-info-image {
   font-size: 20px;
   display: inline !important;
-  /* position: absolute; */
-  /* padding: 2px; */
   margin-right: 80px !important;
   margin-top: 80px !important;
-  /* bottom: 450px; */
   max-width: 450px;
   max-height: 450px;
+}
+
+.back-allproducts-button{
+  margin-left: 25px;
+  width: 140px;
+  height: 40px;
+  font-size: 15px;
+  background-color: lightblue;
+  font-weight: 800px;
+  font-family: 'Yantramanav', sans-serif;
+  border-radius: 3px;
+  border: 1px solid black;
 }
 
 .ui.dropdown {
@@ -245,4 +248,145 @@ button.ui.green.button {
   background-color: red;
   border-radius: 9px;
   font-size: 16px;
+}
+
+
+/* sSELLERPAGE */
+
+.main-sellerpage-container {
+  text-align: left;
+  border: solid;
+  border-radius: 4px;
+  margin: 4px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+
+}
+
+.seller-product-description {
+padding-left: 4px;
+font-size: 16px;
+
+}
+
+.seller-product-info-image {
+  max-height: 160px;
+  max-width: 160px;
+}
+
+.label-seller-product-info {
+  font-size: 20px;
+}
+
+.seller-product-info {
+  font-size: 16px;
+}
+
+.label-seller-product-title-info{
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.seller-product-info-title {
+  font-size: 16px;
+}
+
+.add-product-form {
+  font-size: 15px;
+  padding: 0px;
+}
+
+.add-product-button {
+  margin: 5px;
+  border-radius: 6px;
+  padding: 7px;
+  background-color: blue;
+  color: white;
+}
+
+/* CARTPAGE */
+
+.cart-page-main-container {
+  width: 90%;
+  margin: 70px;
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  border-bottom: 2px solid grey;
+
+}
+
+.cart-page-image {
+  max-width: 350px;
+  max-height: 350px;
+  margin-bottom: 10px;
+}
+
+
+
+.cart-page-name {
+  font-size: 20px;
+  color: blue;
+}
+
+.cart-customer-name {
+  font-size: 28px;
+  padding-left: 120px;
+  padding-top: 30px;
+}
+
+.checkout-button {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-left: 800px;
+  margin-top: 50px;
+  width: 170px;
+  background-color: orange;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  color: black;
+}
+
+.checkout-button:hover {
+  background-color: blue;
+  color: white;
+  font-family: 'Luckiest Guy', sans-serif;
+  transform: scale(1.2);
+}
+
+.secondary-cart-container {
+  /* width: 33.33%; */
+  display: flex;
+    float: left;
+    font-family: 'Yantramanav', sans-serif;
+
+}
+
+.cart-delete-button {
+  width: 125px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  margin-left: 50px;
+  display: absolute;
+  overflow: hidden;
+}
+
+.cart-page-totalprice {
+  font-size: 20px;
+  margin-left: 13px;
+  /* margin: auto; */
+}
+
+.cart-page-quantity {
+font-size: 20px;
+margin-left: 13px;
+}
+
+.cart-page-price-per-item {
+font-size: 20px;
+margin-left: 13px;
 }

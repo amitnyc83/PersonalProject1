@@ -9,16 +9,20 @@ class SellerProdContainer extends Component {
     return this.props.product.filter(product => {
       return product["seller_id"] === this.props.currentUser["user_id"]
     }).map(productInfo => {
-      return <div key={productInfo.id}>
-        <label>Name</label>
-        <h5> {productInfo.name}</h5>
-        <label>Price</label>
-        <h5> {productInfo.price}</h5>
-        <label>Description</label>
-        <h5> {productInfo.description}</h5>
-        <label>Brand</label>
-        <h5> {productInfo.brand}</h5>
-        <img src={productInfo.image} alt={productInfo.name} />
+      return <div class="main-sellerpage-container">
+        <label class="label-seller-product-info">Name:</label>
+        <span class="seller-product-info"> {productInfo.name} </span>
+        <br></br>
+        <label class="label-seller-product-info">Price:</label>
+        <span class="seller-product-info"> ${productInfo.price} </span>
+        <br></br>
+        <label class="label-seller-product-info">Description:</label>
+        <span class="seller-product-description"> {productInfo.description} </span>
+        <br></br>
+        <label class="label-seller-product-title-info">Title:</label>
+        <span class="seller-product-info-title"> {productInfo.title} </span>
+        <br></br>
+        <img class="seller-product-info-image" src={productInfo.image} />
       </div>
     })
   }
@@ -27,6 +31,7 @@ class SellerProdContainer extends Component {
   render() {
     return(
       <React.Fragment>
+        <p>{this.props.currentUser.username}</p>
         {this.sellersProducts()}
         <AddProduct />
       </React.Fragment>
