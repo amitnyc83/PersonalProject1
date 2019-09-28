@@ -67,7 +67,7 @@ class SignUpForm extends Component {
             </h2>
             <form onSubmit={this.signUphandleSubmit} class="ui large form" >
               <div class="ui stacked secondary segment">
-                <select onChange={this.signUphandleChange} name="type" class="ui dropdown">
+                <select onChange={this.signUphandleChange} name="type" id="signup-select">
                   <option value="">Account Type</option>
                   <option  value="Customer">Customer</option>
                   <option  value="Seller" >Seller</option>
@@ -80,7 +80,7 @@ class SignUpForm extends Component {
                   <div class="field">
                     <div class="ui left icon input">
                       <i class="lock icon"></i>
-                      <input name="password" type="text" onChange={this.signUphandleChange} value={this.state.value} placeholder="Password"/>
+                      <input name="password" type="password" onChange={this.signUphandleChange} value={this.state.value} placeholder="Password"/>
                     </div>
                     <div class="field">
                       <div class="ui left icon input">

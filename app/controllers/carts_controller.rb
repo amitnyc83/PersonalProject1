@@ -21,13 +21,13 @@ class CartsController < ApplicationController
   end
 
   def update
-    cart = cart.find(params[:id])
+    cart = Cart.find(params[:id])
     cart.update(ordered: cart_params[:ordered])
     render json: {message: "updated", cart: cart}
-  end 
+  end
 
   def destroy
-    cart = cart.find(params[:id])
+    cart = Cart.find(params[:id])
     cart.destroy
     render json: {message: "cart has been destroyed"}
   end

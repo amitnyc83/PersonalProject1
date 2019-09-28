@@ -27,7 +27,7 @@ class CartProductsContainer extends Component {
             <div>
               <p>{this.props.productCart.name}</p>
               <p> Quantity: {this.props.productCart.quantity}</p>
-              <p>Price per Item: {this.props.productcart["total_price "]}</p>
+              <p>Price per Item: {this.props.productCart["total_price "]}</p>
               <p>Total Price: ${this.props.productCart.quantity * this.props.productCart["total_price"]}</p>
               <button class="delete-button" onClick={(event) => this.deleteCart(event, this.props.productCart)}>Delete</button>
             </div>

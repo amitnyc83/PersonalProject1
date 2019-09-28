@@ -21,7 +21,9 @@ class ProductPage extends Component {
 
   handleSubmit = (e, cartProduct) => {
     e.preventDefault()
-    cartProduct["quantity"] = this.state.quantitySelected
+    let quantitySel = this.state.quantitySelected;
+    let productPrice = cartProduct.price ;
+    let totalCartPrice = quantitySel * productPrice;
     this.setState({
       selectedProduct: cartProduct
     })
@@ -34,7 +36,7 @@ class ProductPage extends Component {
       body: JSON.stringify({
         name: cartProduct.name,
         quantity: this.state.quantitySelected,
-        total_price: 10,
+        total_price: totalCartPrice,
         ordered: false,
         user_id: this.props.currentUser.user_id,
         product_id: cartProduct.id
@@ -82,7 +84,7 @@ class ProductPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentuser: state.user.user,
+    currentUser: state.user.user,
     productInCart: state.cartProducts.cartProducts
   }
 }

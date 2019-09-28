@@ -48,6 +48,7 @@ class App extends Component {
       <React.Fragment>
 
           <Header />
+          
           <Switch>
           <Route path="/login" exact render={(renderProps) => (<LoginForm renderProps={renderProps}/>)} />
           <Route path="/signup" exact render={(renderProps) => (<SignUpForm renderProps={renderProps}/>)} />

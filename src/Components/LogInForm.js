@@ -72,7 +72,7 @@ class LoginForm extends Component {
       <div class="field">
         <div class="ui left icon input">
          <i class="lock icon"></i>
-      <input name="password" type="text" onChange={this.signInhandleChange} value={this.state.value} placeholder="Password"/>
+      <input name="password" type="password" onChange={this.signInhandleChange} value={this.state.value} placeholder="Password"/>
       </div>
         </div>
          </div>
@@ -80,6 +80,7 @@ class LoginForm extends Component {
           </div>
           <div class="ui error message"></div>
       </form>
+      Not a member?<a href="http://localhost:3000/signup"> Sign Up</a>
     </div>
     </div>
     </React.Fragment>
