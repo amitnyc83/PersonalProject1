@@ -15,11 +15,17 @@ const reducer = (state = initialState, action) => {
     return {allProducts: [...state.allProducts, newproduct]}
 
 
+    case "DELETE_PRODUCT":
+    let filteredArray = state.allProducts.filter(product => {
+      return product.id !== action.payload.id
+    })
+    return {
+      allProducts: filteredArray
+    }
 
 
     default:
     return state
-
   }
 
 

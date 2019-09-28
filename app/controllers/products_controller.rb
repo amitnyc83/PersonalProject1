@@ -24,6 +24,12 @@ class ProductsController < ApplicationController
     render json: {product: product, message: "quantity has been updated"}
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    render json: {message: "Product has been deleted"}
+  end
+
 
   private
 

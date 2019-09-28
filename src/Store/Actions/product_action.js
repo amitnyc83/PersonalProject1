@@ -9,9 +9,18 @@ export function fetchProducts() {
 }
 
 
+
 export const addProduct = (newproduct) => {
   return {
     type: "ADD_PRODUCT",
     payload: newproduct
+  }
+}
+
+
+export const sellerDeleteProduct = (deletedProduct) => {
+  return {
+    type: "DELETE_PRODUCT",
+    payload: deletedProduct
   }
 }
