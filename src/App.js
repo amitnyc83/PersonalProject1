@@ -7,6 +7,7 @@ import Header from '../src/Components/Header';
 import Cart from '../src/Components/Cart';
 import SellerPage from '../src/Components/SellerPage';
 import LoginForm from '../src/Components/LogInForm';
+import Checkout from '../src/Components/Checkout';
 import IndividualProductInfo from '../src/Components/IndividualProductInfo';
 import { currentUser } from '../src/Store/Actions/userActions';
 import { BrowserRouter as Router, Switch, withRouter, Route } from 'react-router-dom';
@@ -48,7 +49,7 @@ class App extends Component {
       <React.Fragment>
 
           <Header />
-          
+
           <Switch>
           <Route path="/login" exact render={(renderProps) => (<LoginForm renderProps={renderProps}/>)} />
           <Route path="/signup" exact render={(renderProps) => (<SignUpForm renderProps={renderProps}/>)} />

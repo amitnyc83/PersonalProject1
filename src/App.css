@@ -480,7 +480,7 @@ button.ui.green.button {
   overflow: hidden;
 }
 
-.cart-page-totalprice {
+.cart-page-total-price {
   font-size: 20px;
   margin-left: 13px;
 }
@@ -493,4 +493,10 @@ button.ui.green.button {
 .cart-page-price-per-item {
  font-size: 20px;
  margin-left: 13px;
+}
+
+
+.cart-total-information-container{
+  font-size: 18px;
+  text-align: center;
 }

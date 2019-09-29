@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { fetchCart } from '../Store/Actions/cartActions';
 import CartProductsContainer from './CartProductsContainer';
 import {withRouter} from 'react-router-dom';
-import  { cartOrdered }  from '../Store/Actions/cartActions'
+import  { cartOrdered }  from '../Store/Actions/cartActions';
+import Checkout from './Checkout'
 
 
 
@@ -98,6 +99,7 @@ class Cart extends Component {
       <div>
         <div class="cart-customer-name">Welcome to your cart {this.props.user.username}!</div>
        {this.props.cartProducts.carts ? this.props.cartProducts.carts.filter(cart =>  cart.user_id === this.props.user.user_id).map(cart => <CartProductsContainer key={cart.id} productCart={cart} />) : <div>Your Carty is empty</div> }
+       <Checkout />
        <button class="checkout-button" onClick={this.cartCheckout}>Check-out</button>
       </div>
     )
