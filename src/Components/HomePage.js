@@ -21,7 +21,7 @@ render() {
   return(
     <div>
       <SaleHeader />
-      <h2>WELCOME TO SNEAKERX! YOUR ONE STOP TO BUY AND SELL SNEAKERS</h2>
+      <div className="home-message">WELCOME TO SNEAKERX!</div>
     {this.mapProducts()}
     </div>
   )

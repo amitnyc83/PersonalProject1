@@ -23,6 +23,9 @@ class SellerProdContainer extends Component {
       return product["seller_id"] === this.props.currentUser["user_id"]
     }).map(productInfo => {
       return <div class="main-sellerpage-container">
+        <label class="label-seller-product-brand-info">Brand:</label>
+        <span class="seller-product-info-brand"> {productInfo.brand} </span>
+        <br></br>
         <label class="label-seller-product-info">Name:</label>
         <span class="seller-product-info"> {productInfo.name} </span>
         <br></br>
@@ -32,22 +35,30 @@ class SellerProdContainer extends Component {
         <label class="label-seller-product-info">Description:</label>
         <span class="seller-product-description"> {productInfo.description} </span>
         <br></br>
-        <label class="label-seller-product-title-info">Title:</label>
-        <span class="seller-product-info-title"> {productInfo.title} </span>
+        <label class="label-seller-product-brand-info">Cost:</label>
+        <span class="label-seller-product-brand"> ${productInfo.cost} </span>
         <br></br>
+        <label class="label-seller-product-brand-info">Profit Margin/item</label>
+        <span class='label-seller-product-brand'>{((productInfo.cost / productInfo.price) * 100).toFixed(2)}%</span>
         <img class="seller-product-info-image" src={productInfo.image} />
-         <button class="seller-deletebutton" onClick={(e) => this.deleteOwnProduct(e, productinfo)}>Delete</button>
+         <button class="seller-deletebutton" onClick={(e) => this.deleteOwnProduct(e, productInfo)}>Delete</button>
       </div>
     })
   }
 
 
   render() {
+    let totalProducts;
+    if(this.props.currentUser) {
+      totalProducts = this.props.product.map(product => product.seller_id === this.props.currentUser["user_id"]).filter (product => product === true).length
+    }
     return(
       <React.Fragment>
-        <p>{this.props.currentUser.username}</p>
-        {this.sellersProducts()}
+        <p class="seller-username">{this.props.currentUser.username}</p>
         <AddProduct />
+        <p class="seller-currentProducts">{this.props.currentUser.username} Current Products</p>
+        <p class="seller-totalProducts">Total Amount of Products: {totalProducts}</p>
+        {this.sellersProducts()}
       </React.Fragment>
     )
   }

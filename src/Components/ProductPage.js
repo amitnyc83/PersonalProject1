@@ -64,7 +64,9 @@ class ProductPage extends Component {
       <div class="main-home-product-container">
         <div class="secondary-home-container">
           <form onSubmit={(e) => this.handleSubmit(e, product)}>
-            <img class="home-product-image" src={product.image} onClick={(event) => this.clickedProduct(event, product)}/>
+            <div class="product-image-home">
+             <img class="home-product-image" src={product.image} onClick={(event) => this.clickedProduct(event, product)}/>
+            </div>
             <a id="main-title">{product.title}</a>
             <p class="home-product-name">{product.name}</p>
             <p class="home-product-price">${product.price}</p>
