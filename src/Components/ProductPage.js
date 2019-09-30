@@ -77,8 +77,8 @@ class ProductPage extends Component {
                 <select onChange={(event) => this.handleChange(event, product)} name="quantitySelected" class="ui dropdown"><option value="0">Qty</option>
                 {quantityArray.map(num => <option value={num.toString()}>{num}</option>)}
               </select>
-              <button class="add-to-cart-button"><i class="shop icon"></i>Add To Cart</button>
-            </React.Fragment> : <span className="soldout">Sold Out</span>}
+              {this.props.currentUser.type !== "Seller" ? <button class="add-to-cart-button"><i class="shop icon"></i>Add To Cart</button> : <div className="seller-addtocart">Customer Account Needed To Buy</div> }
+              </React.Fragment>  : <span className="soldout">Sold Out</span>}
           </form>
         </div>
       </div>

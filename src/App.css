@@ -154,6 +154,11 @@ label {
   border-bottom: 2px solid black;
 }
 
+.seller-addtocart {
+  color: red;
+  font-size: 15
+}
+
 
 
 #main-title {
@@ -480,10 +485,6 @@ button.ui.green.button {
   overflow: hidden;
 }
 
-.cart-total-price {
-  font-size: 20px;
-  margin-left: 13px;
-}
 
 .cart-page-quantity {
  font-size: 20px;
@@ -493,6 +494,11 @@ button.ui.green.button {
 .cart-page-price-per-item {
  font-size: 20px;
  margin-left: 13px;
+}
+
+.cart-page-totalprice {
+  font-size: 20px;
+  margin-left: 13px;
 }
 
 
