@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { addProductCart } from '../Store/Actions/cartActions';
-import ProductPage from './ProductPage'
+import ProductPage from './ProductPage';
+import { connect } from 'react-redux'
 
 
 class ProductContainer extends Component {
