@@ -72,13 +72,13 @@ class ProductPage extends Component {
             <p class="home-product-price">${product.price}</p>
             <div>
             </div>
-            { parseInt(product.quantity) > 0 ?
+            { parseInt(product.quantity) > 1 ?
               <React.Fragment>
                 <select onChange={(event) => this.handleChange(event, product)} name="quantitySelected" class="ui dropdown"><option value="0">Qty</option>
                 {quantityArray.map(num => <option value={num.toString()}>{num}</option>)}
               </select>
               <button class="add-to-cart-button"><i class="shop icon"></i>Add To Cart</button>
-            </React.Fragment> : <span id="soldout">Sold Out</span>}
+            </React.Fragment> : <span className="soldout">Sold Out</span>}
           </form>
         </div>
       </div>
