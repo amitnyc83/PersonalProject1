@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProductCart } from '../Store/Actions/cartActions';
 import IndividualProductInfo from './IndividualProductInfo';
+import { withRouter } from 'react-router-dom';
 
 
 class ProductPage extends Component {
@@ -21,31 +22,37 @@ class ProductPage extends Component {
 
   handleSubmit = (e, cartProduct) => {
     e.preventDefault()
-    let quantitySel = this.state.quantitySelected;
-    let productPrice = cartProduct.price ;
-    let totalCartPrice = quantitySel * productPrice;
-    this.setState({
-      selectedProduct: cartProduct
-    })
-    fetch(`http://localhost:3001/carts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        name: cartProduct.name,
-        quantity: this.state.quantitySelected,
-        total_price: totalCartPrice,
-        ordered: false,
-        user_id: this.props.currentUser.user_id,
-        product_id: cartProduct.id,
-        image: cartProduct.image
+    if (this.props.currentUser){
+      let quantitySel = this.state.quantitySelected;
+      let productPrice = cartProduct.price ;
+      let totalCartPrice = quantitySel * productPrice;
+      this.setState({
+        selectedProduct: cartProduct
       })
-    }).then(response => response.json())
-    .then(cart => {
-      this.props.addProductCart(cart)
-    })
+      fetch(`http://localhost:3001/carts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          name: cartProduct.name,
+          quantity: this.state.quantitySelected,
+          total_price: totalCartPrice,
+          ordered: false,
+          user_id: this.props.currentUser.user_id,
+          product_id: cartProduct.id,
+          image: cartProduct.image
+        })
+      }).then(response => response.json())
+      .then(cart => {
+        this.props.addProductCart(cart)
+      })
+    }
+    else {
+      alert("Need to log in to add to cart")
+      this.props.history.push("/login")
+    }
   }
 
   clickedProduct = (event, clickedProduct) => {
@@ -106,4 +113,4 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductPage));

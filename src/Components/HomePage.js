@@ -7,25 +7,50 @@ import SaleHeader from './SaleHeader'
 
 class HomePage extends Component {
 
-componentDidMount() {
-  this.props.fetchProducts()
-}
+  state = {
+    search: false,
+    searchWord: null
+  }
 
-mapProducts = () => {
 
-  return (this.props.sneakerProducts.allProducts ? <ProductContainer product={this.props.sneakerProducts.allProducts} /> : null )
+  componentDidMount() {
+    this.props.fetchProducts()
+  }
 
-}
+  handleChange = (event) => {
+   this.setState({
+     searchWord: event.target.value
+    })
+  }
 
-render() {
-  return(
-    <div>
-      <SaleHeader />
-      <div className="home-message">WELCOME TO SNEAKERX!</div>
-    {this.mapProducts()}
-    </div>
-  )
-}
+  mapProducts = () => {
+    let filteredArray;
+    if (this.state.searchWord == null) {
+      return (this.props.sneakerProducts.allProducts ? <ProductContainer product={this.props.sneakerProducts.allProducts} /> : null )
+    }
+    else {
+     filteredArray = this.props.sneakerProducts.allProducts.filter(product => {
+       return product.brand.toLowerCase().search(this.state.searchWord.toLowerCase()) !== -1
+      })
+      return (this.props.sneakerProducts.allProducts ? <ProductContainer product={filteredArray} /> : null )
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        <SaleHeader />
+          <div class="ui category search" >
+            <div class="ui icon input">
+              <input onChange={(event) => this.handleChange(event)} class="prompt" type="text" name="searchWord" placeholder="Search Product..." />
+              <i class="search icon"></i>
+            </div>
+          </div>
+        <div className="home-message">SNEAKERX!</div>
+        {this.mapProducts()}
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = ({products}) => {

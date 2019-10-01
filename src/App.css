@@ -105,6 +105,20 @@ label {
   border-width: 1px;
 }
 
+.ui.category.search {
+  font-size: 17px !important;
+  float: right !important;
+  padding-right: 80px;
+  color: green !important;
+  weight: 700px !important;
+  margin-top: 20px;
+}
+
+.ui.icon.input {
+  color: blue !important;
+  weight: 700 !important;
+}
+
 .home-product-name {
   margin-top: 3px;
   margin-top: 2px;
@@ -151,7 +165,7 @@ label {
   font-weight: 700;
   text-align: center;
   padding-bottom: 13px;
-  border-bottom: 2px solid black;
+/*  border-bottom: 2px solid black;*/
 }
 
 .seller-addtocart {
@@ -181,6 +195,10 @@ div.content {
   padding: 2px;
   color: white;
   margin: 3px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 9px;
+  padding-top: 9px;
 }
 
 #product-info-main-container {
