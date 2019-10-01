@@ -10,7 +10,9 @@ import { deletedCart } from '../Store/Actions/cartActions';
 class CartProductsContainer extends Component {
 
   state = {
-    count: 0
+    count: 0,
+    priceperItem: (this.props.productCart["total_price"]/ this.props.productCart.quantity),
+    totalprice: this.props.productCart.total_price
   }
 
 
@@ -31,16 +33,55 @@ class CartProductsContainer extends Component {
     })
   }
 
-  minusQuantity = (event) => {
+  minusQuantity = (cart) => {
+    let priceperitem = cart.total_price / cart.quantity
+
     this.setState({
-      count: this.state.count - 1
-    }, () => console.log(this.state))
+      count: --this.state.count,
+      priceperItem: priceperitem,
+      totalprice: this.state.count * priceperitem
+    }
+    , () => {
+      let updatedQuantity = this.state.count.toString()
+
+      fetch(`http://localhost:3001/carts/${cart.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          quantity: updatedQuantity,
+          total_price: this.state.totalprice
+        })
+      }).then(response => response.json())
+      .then(resp => console.log(resp))
+    })
   }
 
-  plusQuantity = () => {
+  plusQuantity = (cart) => {
+    let priceperitem = cart.total_price / cart.quantity
+
     this.setState({
-      count: ++this.state.count
-    }, () => console.log(this.state))
+      count: ++this.state.count,
+      priceperItem: priceperitem,
+      totalprice: this.state.count * priceperitem
+    }, () => {
+      let addingOne = this.state.count.toString()
+
+      fetch(`http://localhost:3001/carts/${cart.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          quantity: addingOne,
+          total_price: this.state.totalprice
+        })
+      }).then(response => response.json())
+      .then(resp => console.log(resp))
+    })
   }
 
   render() {
@@ -52,12 +93,12 @@ class CartProductsContainer extends Component {
               <div class="secondary-cart-container">
                 <p class="cart-page-name">{this.props.productCart.name}</p>
                 <img class="cart-page-image"src={this.props.productCart.image}/>
-                <p class="cart-page-quantity"> Quantity: {this.props.productCart.quantity}</p>
-                <p class="cart-page-price-per-item">Price per Item: ${parseInt(this.props.productCart["total_price"] / this.props.productCart.quantity).toFixed(2)}</p>
-                <p class="cart-page-totalprice">Total Price: ${parseInt(this.props.productCart["total_price"]).toFixed(2)} </p>
-                <button className="minus-cart-button" onClick={this.minusQuantity}>-</button>
+                <p class="cart-page-quantity"> Quantity: {this.state.count}</p>
+                <p class="cart-page-price-per-item">Price per Item: ${this.state.priceperItem.toFixed(2)}</p>
+                <p class="cart-page-totalprice">Total Price: ${parseFloat(this.state.totalprice).toFixed(2)} </p>
+                <button className="minus-cart-button" onClick={() => this.minusQuantity(this.props.productCart)}>-</button>
                 <div className="cart-quantity-form">{this.state.count}</div>
-                <button className="plus-cart-button" onClick={this.plusQuantity} >+</button>
+                <button className="plus-cart-button" onClick={() => this.plusQuantity(this.props.productCart)} >+</button>
                 <button class="cart-delete-button" onClick={(event) => this.deleteCart(event, this.props.productCart)}>Delete</button>
               </div>
             </div>
@@ -69,9 +110,10 @@ class CartProductsContainer extends Component {
 }
 
 
-const mapStateToProps = ({user}) => {
+const mapStateToProps = (state) => {
   return {
-    currentUser: user.user
+    currentUser: state.user.user,
+    productCarts: state.cartProducts.cartProducts.carts
   }
 }
 

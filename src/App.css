@@ -106,17 +106,23 @@ label {
 }
 
 .ui.category.search {
-  font-size: 17px !important;
-  float: right !important;
-  padding-right: 80px;
+  font-size: 20px !important;
+  float: left !important;
+  padding-left: 80px;
   color: green !important;
-  weight: 700px !important;
+  font-weight: 700px !important;
   margin-top: 20px;
 }
 
+.prompt::-webkit-input-placeholder{
+  color: black !important;
+  font-weight: 500;
+  font-size: 20px;
+}
+
 .ui.icon.input {
-  color: blue !important;
-  weight: 700 !important;
+  color: black !important;
+  weight: 500;
 }
 
 .home-product-name {
@@ -189,9 +195,10 @@ label {
 }
 
 div.content {
-  background: rgb(219, 245, 244) !important;
   border-radius: 7px !important;
   margin-top: 30px;
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
 
@@ -561,20 +568,31 @@ button.ui.green.button {
   height: 30px;
   width: 30px;
   margin-left: 12px;
-  margin-right: 8px;
+  margin-right: 1px;
+  background-color: orange;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .plus-cart-button {
   height: 30px;
   width: 30px;
-  margin-left: 12px;
+  margin-left: 1px;
   margin-right: 12px;
+  background-color: orange;
+  font-weight: 700;
+  font-size: 20px;
+
 }
 
 .cart-quantity-form {
-  font-size: 22px;
-  height: 20px;
+  color: blue;
+  font-size: 20px;
+  height: 30px;
+  width: 30px;
   padding-top: 4px;
+  background-color: white;
+  font-family: 'Yantramanav', sans-serif;
 }
 
 .cart-total-price {

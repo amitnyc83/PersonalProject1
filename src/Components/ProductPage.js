@@ -38,7 +38,7 @@ class ProductPage extends Component {
         body: JSON.stringify({
           name: cartProduct.name,
           quantity: this.state.quantitySelected,
-          total_price: totalCartPrice,
+          total_price: totalCartPrice.toFixed(2),
           ordered: false,
           user_id: this.props.currentUser.user_id,
           product_id: cartProduct.id,
