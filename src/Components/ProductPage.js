@@ -46,7 +46,12 @@ class ProductPage extends Component {
         })
       }).then(response => response.json())
       .then(cart => {
-        this.props.addProductCart(cart)
+        if (cart.message !== "error: could not add to cart") {
+          this.props.addProductCart(cart)
+        }
+        else {
+          alert("Quantity must be at least 1")
+        }
       })
     }
     else {

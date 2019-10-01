@@ -294,9 +294,16 @@ button.ui.green.button {
 }
 
 #signup-select {
-  width: 130px ;
-  background-color: grey;
+  width: 200px ;
+  background-color: #21BA45;
   color: white;
+  padding-bottom: 15px;
+  margin: auto;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
 }
 
 
@@ -548,6 +555,26 @@ button.ui.green.button {
   margin-left: 50px;
   display: absolute;
   overflow: hidden;
+}
+
+.minus-cart-button {
+  height: 30px;
+  width: 30px;
+  margin-left: 12px;
+  margin-right: 8px;
+}
+
+.plus-cart-button {
+  height: 30px;
+  width: 30px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.cart-quantity-form {
+  font-size: 22px;
+  height: 20px;
+  padding-top: 4px;
 }
 
 .cart-total-price {
