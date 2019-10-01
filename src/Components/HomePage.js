@@ -32,7 +32,7 @@ class HomePage extends Component {
      filteredArray = this.props.sneakerProducts.allProducts.filter(product => {
        return product.brand.toLowerCase().search(this.state.searchWord.toLowerCase()) !== -1
       })
-      return (this.props.sneakerProducts.allProducts ? <ProductContainer product={filteredArray} /> : null )
+      return (filteredArray.length !== 0  ? <ProductContainer product={filteredArray} /> : <div className="home-product-search-noresults">No Matches Found. Try Again</div> )
     }
   }
 
