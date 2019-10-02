@@ -87,7 +87,6 @@ class ProductPage extends Component {
             { parseInt(product.quantity) > 1 ?
               <React.Fragment>
                 <select onChange={(event) => this.handleChange(event, product)} name="quantitySelected" class="ui dropdown"><option value="0">Qty</option>
-<<<<<<< HEAD
                  {quantityArray.map(num => <option value={num.toString()}>{num}</option>)}
                 </select>
                 {this.props.currentUser.type !== "Seller" ?
@@ -96,12 +95,10 @@ class ProductPage extends Component {
                 }
               </React.Fragment> :
             <span className="soldout">Sold Out</span>}
-=======
                 {quantityArray.map(num => <option value={num.toString()}>{num}</option>)}
               </select>
               {this.props.currentUser.type !== "Seller" ? <button class="add-to-cart-button"><i class="shop icon"></i>Add To Cart</button> : <div className="seller-addtocart">Customer Account Needed To Buy</div> }
               </React.Fragment>  : <span className="soldout">Sold Out</span>}
->>>>>>> 6d604ad2911c1fa3ee88cb345db944f4b52b1c95
           </form>
         </div>
       </div>

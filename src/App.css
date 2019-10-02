@@ -569,7 +569,6 @@ button.ui.green.button {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
 .minus-cart-button {
   height: 30px;
   width: 30px;
@@ -605,8 +604,7 @@ button.ui.green.button {
   font-size: 20px;
   margin-left: 13px;
 }
-=======
->>>>>>> 6d604ad2911c1fa3ee88cb345db944f4b52b1c95
+
 
 .cart-page-quantity {
  font-size: 20px;
