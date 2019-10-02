@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Seller : Username: SneakerHead, Password: password
+Customer: Username: SneakerHead1, Password: password
+
 ## Available Scripts
 
 In the project directory, you can run:
