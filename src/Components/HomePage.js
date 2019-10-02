@@ -54,7 +54,6 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = ({products}) => {
-  // console.log(products)
   return {
     sneakerProducts: products
   }
