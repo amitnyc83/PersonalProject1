@@ -1,7 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and a Rails 6 backend.
 
-Seller : Username: SneakerHead, Password: password
-Customer: Username: SneakerHead1, Password: password
+You run the app, please copy and clone the repo to your computer with git clone.
+You will have to install the gems for the backends by typing 'bundle install' and install the packages for the frontend by typing 'npm install'.
+
+Once you have successfully install the gems and packages; simply type 'rake start' in your terminal to start the application.
+
+You can login into the app as a seller or a customer. To login in as a seller, you can use the login info:
+
+Seller: Username: SneakerHead,
+        Password: password
+
+and to login as a customer, you can use the login info:
+
+Customer: Username: SneakerHead1,
+Password: password
+
+Both login has different features. As a customer(buyer), you will be able to add products to your cart and checkout to buy the products. As a seller, you will be able to add new products and edit existing ones. 
 
 ## Available Scripts
 
