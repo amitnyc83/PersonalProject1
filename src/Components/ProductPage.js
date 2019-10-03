@@ -93,13 +93,9 @@ class ProductPage extends Component {
                   <button class="add-to-cart-button"><i class="shop icon"></i>Add To Cart</button> :
                   <div className="seller-addtocart">Customer Account Needed To Buy</div>
                 }
-<<<<<<< HEAD
               </React.Fragment> :
             <span className="soldout">Sold Out</span>}
-=======
-              </React.Fragment>  : <span className="soldout">Sold Out</span>
             }
->>>>>>> 6b1ff7336dfef0d9ac713b51aa4be47322abf56d
           </form>
         </div>
       </div>
