@@ -95,10 +95,6 @@ class ProductPage extends Component {
                 }
               </React.Fragment> :
             <span className="soldout">Sold Out</span>}
-                {quantityArray.map(num => <option value={num.toString()}>{num}</option>)}
-              </select>
-              {this.props.currentUser.type !== "Seller" ? <button class="add-to-cart-button"><i class="shop icon"></i>Add To Cart</button> : <div className="seller-addtocart">Customer Account Needed To Buy</div> }
-              </React.Fragment>  : <span className="soldout">Sold Out</span>}
           </form>
         </div>
       </div>
