@@ -77,28 +77,24 @@ class ProductPage extends Component {
         <div class="secondary-home-container">
           <form onSubmit={(e) => this.handleSubmit(e, product)}>
             <div class="product-image-home">
-             <img class="home-product-image" src={product.image} onClick={(event) => this.clickedProduct(event, product)}/>
+              <img class="home-product-image" src={product.image} onClick={(event) => this.clickedProduct(event, product)}/>
             </div>
-            <a id="main-title">{product.title}</a>
-            <p class="home-product-name">{product.name}</p>
-            <p class="home-product-price">${product.price}</p>
+            <a id="main-title">{product.brand}</a>
+            <p class="home-product-name">{product.name} </p>
+            <p class="home-product-price"> ${product.price} </p>
             <div>
             </div>
             { parseInt(product.quantity) > 1 ?
               <React.Fragment>
                 <select onChange={(event) => this.handleChange(event, product)} name="quantitySelected" class="ui dropdown"><option value="0">Qty</option>
-                 {quantityArray.map(num => <option value={num.toString()}>{num}</option>)}
+                  {quantityArray.map(num => <option value={num.toString()}>{num}</option> )}
                 </select>
                 {this.props.currentUser.type !== "Seller" ?
                   <button class="add-to-cart-button"><i class="shop icon"></i>Add To Cart</button> :
                   <div className="seller-addtocart">Customer Account Needed To Buy</div>
                 }
-              </React.Fragment> :
-            <span className="soldout">Sold Out</span>}
-                {quantityArray.map(num => <option value={num.toString()}>{num}</option>)}
-              </select>
-              {this.props.currentUser.type !== "Seller" ? <button class="add-to-cart-button"><i class="shop icon"></i>Add To Cart</button> : <div className="seller-addtocart">Customer Account Needed To Buy</div> }
-              </React.Fragment>  : <span className="soldout">Sold Out</span>}
+              </React.Fragment>  : <span className="soldout">Sold Out</span>
+            }
           </form>
         </div>
       </div>
