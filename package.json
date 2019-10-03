@@ -2,7 +2,7 @@
   "name": "personal-project-1",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "cloudinary-react": "^1.1.4",
     "history": "^4.10.1",
