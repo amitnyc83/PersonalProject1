@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Form } from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom'
 
 class SignUpForm extends Component {

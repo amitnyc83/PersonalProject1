@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { deletedCart } from '../Store/Actions/cartActions';
-//import Checkout from './Checkout'
+// import Checkout from './Checkout'
 
 
 
@@ -14,6 +14,8 @@ class CartProductsContainer extends Component {
     priceperItem: (this.props.productCart["total_price"]/ this.props.productCart.quantity),
     totalprice: this.props.productCart.total_price
   }
+
+
 
 
 
@@ -55,7 +57,6 @@ class CartProductsContainer extends Component {
           total_price: this.state.totalprice
         })
       }).then(response => response.json())
-      .then(resp => console.log(resp))
     })
   }
 
@@ -80,26 +81,29 @@ class CartProductsContainer extends Component {
           total_price: this.state.totalprice
         })
       }).then(response => response.json())
-      .then(resp => console.log(resp))
     })
   }
+
+
 
   render() {
     return(
       <React.Fragment>
         {this.props.productCart.length != 0 ?
           <React.Fragment>
-            <div class="cart-page-main-container">
-              <div class="secondary-cart-container">
-                <p class="cart-page-name">{this.props.productCart.name}</p>
-                <img class="cart-page-image"src={this.props.productCart.image}/>
-                <p class="cart-page-quantity"> Quantity: {this.state.count}</p>
-                <p class="cart-page-price-per-item">Price per Item: ${this.state.priceperItem.toFixed(2)}</p>
-                <p class="cart-page-totalprice">Total Price: ${parseFloat(this.state.totalprice).toFixed(2)} </p>
+
+            <div className="cart-page-main-container">
+              <div className="secondary-cart-container">
+                <p className="cart-page-name">{this.props.productCart.name}</p>
+                <p className="cart-page-size">{this.props.productCart.size}</p>
+                <img className="cart-page-image"src={this.props.productCart.image}/>
+                <p className="cart-page-quantity"> Quantity: {this.state.count}</p>
+                <p className="cart-page-price-per-item">Price per Item: ${this.state.priceperItem.toFixed(2)}</p>
+                <p className="cart-page-totalprice">Total Price: ${parseFloat(this.state.totalprice).toFixed(2)} </p>
                 <button className="minus-cart-button" onClick={() => this.minusQuantity(this.props.productCart)}>-</button>
                 <div className="cart-quantity-form">{this.state.count}</div>
                 <button className="plus-cart-button" onClick={() => this.plusQuantity(this.props.productCart)} >+</button>
-                <button class="cart-delete-button" onClick={(event) => this.deleteCart(event, this.props.productCart)}>Delete</button>
+                <button className="cart-delete-button" onClick={(event) => this.deleteCart(event, this.props.productCart)}>Delete</button>
               </div>
             </div>
           </React.Fragment>

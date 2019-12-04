@@ -1,6 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|PT+Sans+Caption|Patua+One|Source+Code+Pro|Yantramanav" rel="stylesheet">
 
+
 .App {
   text-align: center;
 }
@@ -533,7 +534,7 @@ button.ui.green.button {
 .checkout-button {
   font-size: 20px;
   margin-bottom: 50px;
-  margin-left: 5200px;
+  margin-left: 300px;
   margin-right: 300px;
   margin-top: 50px;
   width: 350px;

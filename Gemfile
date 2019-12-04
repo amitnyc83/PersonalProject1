@@ -20,12 +20,18 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'image_processing', '~> 1.2'
 gem 'foreman'
 
+gem 'dotenv-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'faraday', '~> 0.17.0'
+
+
+gem 'adyen-ruby-api-library', '~> 3.0', '>= 3.0.1'
 
 
 

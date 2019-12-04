@@ -12,13 +12,14 @@ class AddProduct extends Component {
     description: "",
     image: "",
     cost: "",
-    quantity: ""
+    quantity: "",
+    size: ""
   }
 
   handleChange = (event) => {
     this.setState({
       [event.target.name] : event.target.value
-    }, () => console.log(this.state))
+    });
   }
 
   handleSubmit = (event) => {
@@ -38,10 +39,10 @@ class AddProduct extends Component {
         image: this.state.image,
         cost: this.state.cost,
         quantity: this.state.quantity,
+        size: this.state.size,
         seller_id: this.props.currentUser["user_id"]
       })
     }).then(response => response.json())
-    // .then(product => console.log(product))
   }
 
 
@@ -65,7 +66,7 @@ class AddProduct extends Component {
     return(
 
       <React.Fragment>
-        <div class="add-product-sign">Add new Products</div>
+        <div class="add-product-sign">Add A New Product</div>
         <CloudinaryContext cloudName="amitscloudmanager">
           <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
           <script>cloudinary.setCloudName(amitscloudmanager);</script>
@@ -80,6 +81,8 @@ class AddProduct extends Component {
           <input name="price" type="number" step="0.01" onChange={this.handleChange} placeholder="Price" value={this.state.value}/>
           <label>Description</label>
           <input name="description" type="text" onChange={this.handleChange} placeholder="Description" value={this.state.value}/>
+          <label>Size</label>
+          <input name="size" type="number" onChange={this.handleChange} placeholder="Size" value={this.state.value}/>
           <label>Cost</label>
           <input name="cost" type="number" step="0.01" onChange={this.handleChange} placeholder="Cost" value={this.state.value}/>
           <label>Quantity</label>

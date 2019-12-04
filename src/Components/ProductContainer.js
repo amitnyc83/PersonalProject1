@@ -61,6 +61,7 @@ class ProductContainer extends Component {
       },
       body: JSON.stringify({
         name: cartProduct.name,
+        size: cartProduct.size,
         quantity: this.state.quantitySelected,
         total_price: totalCartPrice,
         ordered: false,
@@ -92,6 +93,7 @@ class ProductContainer extends Component {
                 <div id="product-info-title">{this.state.clickedProduct.title}</div>
                 <div id="product-info-name">{this.state.clickedProduct.name}</div>
                 <div id="product-info-price"> ${this.state.clickedProduct.price}</div>
+                <div id="product-info-size">{this.state.clickedProduct.size}</div>
                 <div id="product-info-description"> {this.state.clickedProduct.description}</div>
                   {parseInt(this.state.clickedProduct.quantity) > 1 ?
                     <React.Fragment>

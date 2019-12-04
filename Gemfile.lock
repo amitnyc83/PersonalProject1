@@ -61,6 +61,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.1, >= 2.1.8)
+    adyen-ruby-api-library (3.0.1)
+      faraday
     bcrypt (3.1.13)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -69,8 +71,14 @@ GEM
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.1.5)
-    crass (1.0.4)
+    crass (1.0.5)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
+    faraday (0.17.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
     foreman (0.86.0)
     globalid (0.4.2)
@@ -83,7 +91,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.3.0)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -96,6 +104,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.12.2)
     msgpack (1.3.1)
+    multipart-post (2.1.1)
     nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
@@ -161,9 +170,12 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  adyen-ruby-api-library (~> 3.0, >= 3.0.1)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
+  dotenv-rails
+  faraday (~> 0.17.0)
   foreman
   jwt (~> 2.2, >= 2.2.1)
   listen (>= 3.0.5, < 3.2)

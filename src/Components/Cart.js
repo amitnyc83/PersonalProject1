@@ -38,7 +38,12 @@ class Cart extends Component {
       }
     )
 
+
+
+
     this.props.cartOrdered()
+
+
     orderedCarts.forEach(cart => {
       return fetch(`http://localhost:3001/carts/${cart.id}`, {
         method: "PATCH",
@@ -50,12 +55,13 @@ class Cart extends Component {
           ordered: cart.ordered
         })
       }).then(response => response.json())
-      .then(resp => {
-        console.log(resp)
-      })
     })
+
+
     let cartArray = [];
     let productArray = [];
+
+
     let theProducts = this.props.allProducts;
     let subtractQuantity = theProducts.map(product => {
       orderedCarts.map(cart => {
@@ -85,22 +91,20 @@ class Cart extends Component {
               quantity: quantityRemaining
             })
           }).then(response => response.json())
-          .then(resp => {
-            console.log(resp)
-          })
-
         }
       })
     })
   }
 
+
+
   render() {
     return(
       <div>
-        <div class="cart-customer-name">Welcome to your cart {this.props.user.username}!</div>
-       {this.props.cartProducts.carts ? this.props.cartProducts.carts.filter(cart =>  cart.user_id === this.props.user.user_id).map(cart => <CartProductsContainer key={cart.id} productCart={cart} />) : <div>Your Carty is empty</div> }
+        <div className="cart-customer-name">Welcome to your cart {this.props.user.username}!</div>
+       {this.props.cartProducts.carts ? this.props.cartProducts.carts.filter(cart =>  cart.user_id === this.props.user.user_id).map(cart => <CartProductsContainer key={cart.id} productCart={cart} />) : <div>Your Cart is empty</div> }
        <Checkout />
-       <button class="checkout-button" onClick={this.cartCheckout}>Check-out</button>
+       <button class="checkout-button" onClick={this.cartCheckout}>Check out</button>
       </div>
     )
   }
