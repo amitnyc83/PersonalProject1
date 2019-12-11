@@ -1,11 +1,44 @@
-require 'rubygems'
-require 'dogapi'
+# Import the library
+require 'datadog/statsd'
 
-api_key = "816226ca9d3053634e34827fff3c8915"
-application_key = "<YOUR_DD_APP_KEY>"
+# Create a DogStatsD client instance.
+statsd = Datadog::Statsd.new('localhost', 8125)
 
-# Submitting events does not require the application key.
-dog = Dogapi::Client.new(api_key)
+# Increment a counter.
+statsd.increment('page.views')
 
-# Send a new event.
-dog.emit_event(Dogapi::Event.new('this is a test message', :msg_title => 'Test Message'))
+# Record a gauge 50% of the time.
+statsd.gauge('users.online', 123, :sample_rate=>0.5)
+
+while true do
+    statsd.increment('example_metric.increment', tags: ['environment:dev'])
+    statsd.decrement('example_metric.decrement', tags: ['environment:dev'])
+    statsd.count('example_metric.count', 2, tags: ['environment:dev'])
+    sleep 10
+end
+
+
+i = 0
+
+while true do
+    i += 1
+    statsd.gauge('example_metric.gauge', i, tags: ['environment:dev'])
+    sleep 10
+end
+
+
+while true do
+    i += 1
+    statsd.set('example_metric.gauge', i, tags: ['environment:dev'])
+    sleep rand 10
+end
+
+while true do
+    statsd.set('example_metric.histogram', rand 20, tags: ['environment:dev'])
+    sleep 2
+end
+
+while true do
+    statsd.distribution('example_metric.gauge', rand 20, tags: ['environment:dev'])
+    sleep 2
+end
