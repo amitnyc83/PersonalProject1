@@ -102,7 +102,7 @@ class ProductContainer extends Component {
                         <button class="add-to-cart-button" ><i class="shop icon"></i>Add To Cart</button>
                       </form>
                     </React.Fragment> : <span className="soldout">Sold Out</span>
-                  }
+                }
               </div>
             </div>
             <button class="back-allproducts-button"onClick={this.clearState}>Back to Products</button>

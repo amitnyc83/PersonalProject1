@@ -94,7 +94,7 @@ class ProductPage extends Component {
                   <div className="seller-addtocart">Customer Account Needed To Buy</div>
                 }
               </React.Fragment> :
-            <span className="soldout">Sold Out</span>}
+            <span className="soldout">Sold Out</span>
             }
           </form>
         </div>
